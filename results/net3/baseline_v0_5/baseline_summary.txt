@@ -1,0 +1,44 @@
+AQUA-VERA NON-GRAPH TEMPORAL MLP BASELINE v0.5
+==============================================================================
+STATUS: PASS / BASELINE FROZEN PRE-TEST
+
+MODEL
+  architecture: 792 -> 256 -> 64 -> 1
+  dropout: 0.2
+  weighted BCE pos_weight: 4.12139605
+  optimizer: AdamW lr=0.001 weight_decay=0.0001
+  seed: 314159
+  best epoch: 25
+
+VALIDATION (threshold=0.5; descriptive)
+  AUPRC: 0.873926
+  AUROC: 0.934440
+  balanced accuracy: 0.869071
+  F1: 0.773355
+  Brier: 0.086124
+  ECE(15): 0.104582
+
+CALIBRATION
+  frozen threshold: 0.464201702923
+  balanced accuracy: 0.933700
+  F1: 0.882653
+  AUPRC: 0.953883
+  AUROC: 0.980531
+
+HELD-OUT TEST
+  feature files loaded: NO
+  predictions generated: NO
+  metrics inspected: NO
+
+ARTIFACT HASHES
+  baseline_mlp_v0_5.pt: 3e83192de687c42db771964aa82715b6221ad8dc89423484115a9b6aed23a040
+  baseline_config.json: d11c031777c4881d3b312d2f8f2c61957b96a32699bf12b6cf53a619e6a5a5c6
+  pretest_metrics.json: 159faae09c73be7fed12be44e6c012b18a2fd1c794334de3010139c033df3b38
+  training_history.csv: 009c1b6a18fbb31123c8029bdea75c71b7e44829f9df721f7e6f3113d3c8816b
+  validation_predictions.csv: 448a45035c833874e333aeb6d712630b711ed48c9b3cf0d9098e1f90f0ee1a87
+  calibration_predictions.csv: d32485db004dc38c2b40c18c4b054ecb1f23352440a745044e1a36dd8ad7695c
+
+NEXT
+  Send baseline_summary.txt to the research record.
+  Next step is to build/freeze the graph model using train/validation/calibration only.
+  Held-out test remains sealed.

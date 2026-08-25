@@ -1,0 +1,58 @@
+AQUA-VERA FINAL DEGRADED HELD-OUT TEST v0.12
+==============================================================================
+STATUS: PASS / FINAL DEGRADED HELD-OUT EVALUATION COMPLETE
+
+INTEGRITY
+  prior v0.9b/v0.10b/v0.11 source hashes verified: PASS
+  corruption code reproduced frozen calibration manifest: PASS
+  frozen models/thresholds/controller/reconstruction unchanged: YES
+  degraded held-out generation/evaluation attempts: 1
+
+COVERAGE
+  physical contexts: 30
+  full prediction windows/condition: 2,700
+  attribution/controller windows/condition: 600
+  total prediction rows: 94,500
+  total attribution rows: 21,000
+
+FULL-SET ENTROPY EVIDENCE-FAILURE DETECTION
+  AUROC min/median/max: 0.160137 / 0.494997 / 0.577355
+
+ATTRIBUTION VS ENTROPY (SAME FROZEN SUBSET)
+  attribution AUROC min/median/max: 0.479386 / 0.548489 / 0.978678
+  conditions attribution AUROC > entropy AUROC: 27/33
+  max attribution probability reproduction error: 2.248998683e-08
+
+MISSING-SENSOR RECONSTRUCTION (FULL TEST)
+  MLP low: pre=0.707037, post=0.928519, delta=+0.221481
+  MLP medium: pre=0.561481, post=0.691481, delta=+0.130000
+  MLP high: pre=0.454074, post=0.567037, delta=+0.112963
+  GCN_GRU low: pre=0.884815, post=0.865556, delta=-0.019259
+  GCN_GRU medium: pre=0.801852, post=0.669630, delta=-0.132222
+  GCN_GRU high: pre=0.710741, post=0.488519, delta=-0.222222
+
+FROZEN CONTROLLER (ATTRIBUTION SUBSET)
+  MLP clean: n=600, proceed=0.860000, unsafe_proceed=0.026667, always_act_error=0.066667, unsafe_reduction=0.040000
+  MLP degraded: n=9000, proceed=0.824889, unsafe_proceed=0.170111, always_act_error=0.218000, unsafe_reduction=0.047889
+  GCN_GRU clean: n=600, proceed=0.903333, unsafe_proceed=0.058333, always_act_error=0.091667, unsafe_reduction=0.033333
+  GCN_GRU degraded: n=10800, proceed=0.775093, unsafe_proceed=0.079722, always_act_error=0.225833, unsafe_reduction=0.146111
+
+ARTIFACT HASHES
+  heldout_corruption_manifest.csv: 940a897207258b588a79240337e96956ac7ef333758e1249845e5817a57c0a83
+  heldout_degradation_predictions.csv: ace62010843176a1ee94f877810c0d889b04dcf713981e48011589dcc8f832c5
+  heldout_condition_metrics.csv: 32b167315a761f7d4f6e386eeb27ad7b0bd170a87c170e1efc998f02477a5f60
+  heldout_entropy_detection.csv: 36b424ae7e78e4f08d91d9c26da4830071371e4a9b78edf621f1908e8778280f
+  heldout_missing_reconstruction.csv: eb7c4812878aa215db21a1277126e992290efa3d33ae2cfce325b819d90989ff
+  heldout_missing_reconstruction_metrics.csv: 974037609b7d0087681d0aea526b908cef3ceaee997557118a9ef5f12ea1f134
+  heldout_attribution_profiles.npz: 77b3ff4471a7ebacd710d42bca0550ce5ae392a276893c5aafc9b4d9b64cf904
+  heldout_attribution_index.csv: 0d9f2c98396ea9c7acb3ae92b3f79fc6d46bf6c14ef8e8a7d9391dd3eaa9d3c2
+  heldout_attribution_detection.csv: c66a321a3198f5b4867ff8dd7474f1a213c74a273e2105c91b9d17fc6ce1f0cc
+  heldout_missing_reconstruction_attribution.csv: b3e80bb216686dd5a157c892c7b56e57f318483c2112b66eadac3d512ed70335
+  heldout_controller_outcomes.csv: 806bcee09b11105ab9ee7d88282dc9eec90fbe24ce63a105e97947c545ce7104
+  heldout_controller_metrics.csv: 7dbe9306449a0feb40e8edca88d0c99ae7414d309e9d3d051e62c29d6a703f84
+  heldout_controller_overall.csv: 15fed93a455d13063db72c53bcc3e514e4e8f8e38bbb1523416276d921ce4802
+
+NEXT
+  Send final_degraded_test_summary.txt to the research record.
+  Do not retune anything from degraded held-out results.
+  Next: final audit/interpretation, then external BattLeDIM validation.

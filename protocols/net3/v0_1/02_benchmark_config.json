@@ -1,0 +1,45 @@
+{
+  "project": "AQUA-VERA",
+  "protocol_version": "0.1",
+  "data": {
+    "development_year": 2018,
+    "heldout_year": 2019,
+    "sampling_minutes": 5,
+    "window_steps": 24,
+    "features": {
+      "pressure": 33,
+      "flow": 3,
+      "level": 1
+    },
+    "expected_hashes": {
+      "2018_scada_model_ready.csv": "00f56ce42642307cb4c267bd48166c1c1272a96cb8e8f24d3f17dcda09599b6e",
+      "2018_leakages_model_ready.csv": "743ea7b2845b3dced2ada4fba1a54194c54fc9ce18bf7180a1b3afa4b3eaf2f8",
+      "2019_scada_model_ready.csv": "a021ade90c3cfa17362520f0fd7e9794a6c816e4787d7e49a3e52fdd6aa0d15d",
+      "2019_leakages_model_ready.csv": "76fa8c50f19b6dffc2010b4413681179c43da5aa984374b9062897b6fe45c27f"
+    }
+  },
+  "split": {
+    "group_rule": "contiguous leak episodes grouped; negative windows blocked chronologically",
+    "seed": 271828,
+    "train_fraction_target": 0.7,
+    "validation_fraction_target": 0.15,
+    "calibration_fraction_target": 0.15
+  },
+  "degradations": [
+    "MISSING_SENSOR",
+    "SENSOR_NOISE",
+    "SENSOR_BIAS",
+    "STALE_SENSOR",
+    "TOPOLOGY_MISMATCH",
+    "CROSS_SOURCE_CONFLICT"
+  ],
+  "controllers": [
+    "ALWAYS_PROCEED",
+    "UNCERTAINTY_ONLY",
+    "EVIDENCE_INTEGRITY_ONLY",
+    "HYBRID"
+  ],
+  "primary_task": "binary active leak detection at final timestamp of 2-hour observation window",
+  "primary_unsafe_definition": "controller PROCEED and leak decision incorrect",
+  "heldout_policy": "2019 may only be used for final scoring after all choices and thresholds are frozen"
+}

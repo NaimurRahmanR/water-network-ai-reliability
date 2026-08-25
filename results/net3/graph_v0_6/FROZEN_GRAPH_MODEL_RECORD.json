@@ -1,0 +1,14 @@
+{
+  "status": "GRAPH_MODEL_FROZEN_PRETEST",
+  "artifact_sha256": {
+    "graph_gcn_gru_v0_6.pt": "c8d104c5512556dbbcb459eb63ccef8ba8e71cb04fc9b22a5b16c23eee51e0af",
+    "graph_model_config.json": "73f0b36ab7e4b75afa3593950e1b382c3e8b86ace314095cd18df07c50822651",
+    "pretest_metrics.json": "0d97c90c5ef88d6e1e41229983d864e6f3821d93a6602f7a95745e1b87448f97",
+    "graph_input_definition.json": "7d3db649ecf035fbca8ff744dcbaca6ed3cb85523b3123557fb4eff94ebc4726",
+    "training_history.csv": "49683551a247a2aedb55ac64b52fbf2957d014ae2ea91b65a6ac8b2072b40926",
+    "validation_predictions.csv": "b8ee98f45e8351d755a3133e02738c2cc3a63a6933cde563b8898e65a2c9a8a3",
+    "calibration_predictions.csv": "ab5a8f260229351b8b0edbfb4198c9b549313f36f2cc727bf60919bfcba723d4"
+  },
+  "test_evaluated": false,
+  "note": "Graph model frozen before any held-out test feature loading."
+}

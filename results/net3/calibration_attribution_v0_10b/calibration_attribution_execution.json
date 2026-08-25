@@ -1,0 +1,45 @@
+{
+  "status": "CALIBRATION_ATTRIBUTION_COMPLETE",
+  "attempt_history": [
+    {
+      "attempt": "v0.10",
+      "result": "FAILED_BEFORE_OUTPUT_FREEZE",
+      "reason": "Per-context GCN attribution batch was incorrectly compared to full 600-row frozen-condition lookup.",
+      "degraded_test_loaded": false
+    },
+    {
+      "attempt": "v0.10b",
+      "result": "PASS",
+      "scientific_method_changed": false
+    }
+  ],
+  "method": "Input x Gradient",
+  "target": "leak logit",
+  "profile": "absolute Input x Gradient summed over 24 time steps and normalized across 33 sensors",
+  "reference": "predicted-class clean calibration centroid",
+  "divergence": "Jensen-Shannon divergence with natural logarithms",
+  "attribution_position_indices": [
+    0,
+    5,
+    10,
+    15,
+    20,
+    25,
+    30,
+    35,
+    40,
+    44
+  ],
+  "attribution_windows_per_context_variant": 10,
+  "attribution_rows_total": 21000,
+  "profile_shape": [
+    21000,
+    33
+  ],
+  "maximum_frozen_probability_reproduction_error": 2.3516653707700286e-08,
+  "probability_match_tolerance": 2e-06,
+  "split_loaded": "calibration only",
+  "degraded_test_loaded": false,
+  "models_retrained": false,
+  "thresholds_changed": false
+}

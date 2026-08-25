@@ -1,0 +1,34 @@
+AQUA-VERA FULL SCENARIO GENERATION v0.3a
+==============================================================================
+STATUS: PASS / GENERATED
+WNTR version: 1.5.0
+Net3 SHA-256: ea3e825c4fef0b5cba47fb06301bc85253f18b6364dc96c44d9fb492c40faa52
+native Net3 pattern timestep (s): 3600
+
+COUNTS
+  base contexts: 240
+  hydraulic simulations: 480
+  splits: {'train': 150, 'calibration': 30, 'test': 30, 'validation': 30}
+  context NPZ files: 240
+
+OUTPUT SHAPES PER CONTEXT
+  timestamps: 289
+  model-visible sensor features: 33
+  full original-node pressure features: 97
+  full original-link flow features: 119
+
+LEAK EFFECT CHECK
+  minimum max-abs pressure effect across contexts: 0.21983719
+  median max-abs pressure effect: 26.655037
+  maximum max-abs pressure effect: 49.843952
+
+CORE ARTIFACT HASHES
+  generation_index.csv: bc33af176da705ed87850e6032dc313761e2c839faf04aa03c59bd12deb5848a
+  tensor_layout.json: 33220279d7e1ff6c92caacd54785040764168c576d5eb218401515be206a9261
+  graph_nodes.csv: dfb90c5fa1b7c80935edcca5294ec0b87b22cb3788732f4432d58135c8e6f295
+  graph_links.csv: d92ab147d4678c8aff999a86f761f15deeb843a738b3021acc3062b824860c1e
+
+NEXT
+  Send generation_summary.txt to the research record.
+  Do not train yet; the next gate constructs fixed 2-hour model windows
+  and training-only normalization statistics from these generated contexts.

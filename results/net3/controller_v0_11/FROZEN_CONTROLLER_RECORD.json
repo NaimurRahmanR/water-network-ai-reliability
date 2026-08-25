@@ -1,0 +1,16 @@
+{
+  "status": "RELIABILITY_CONTROLLER_FROZEN_PRE_DEGRADED_TEST",
+  "artifact_sha256": {
+    "pressure_reconstruction_ridge.json": "e7d871b91ad8e90dbb696497738436a88a4169574340c8be15a41d4b4afe5dcb",
+    "pressure_reconstruction_train_quality.csv": "b79a442197c64ac0c059995d29a61d98c6be1b784a26923f4e2323ccd557327a",
+    "calibration_missing_reconstruction_outcomes.csv": "c856826e64d85c8ccef39695c384157a6b023e16493d66f9d881399a29ef3800",
+    "calibration_controller_outcomes.csv": "62425e3e189bf8a1a31d78f6e7e5cd87da2bc4c001c608033ddd3f3cc371b2c8",
+    "calibration_controller_metrics.csv": "a9fffd93a1c27c14cc330dd9b984bcddbd051e4ec991872b462fa8db0860d2df",
+    "calibration_controller_overall.csv": "9da752205c0b9e2640cf559faef7c03984317fb5824c71d2d3079f252da15f06",
+    "FROZEN_CONTROLLER_THRESHOLDS.json": "6b47c2b842a43166558cce1741ad99f069e41fe226b98342fc672ad7c14b5c81"
+  },
+  "degraded_test_loaded": false,
+  "models_retrained": false,
+  "clean_model_thresholds_changed": false,
+  "controller_thresholds_source": "clean calibration only"
+}

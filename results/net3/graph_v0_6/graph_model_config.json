@@ -1,0 +1,35 @@
+{
+  "status": "GRAPH_MODEL_FROZEN_PRETEST",
+  "model": "2-layer GCN per timestep -> mean+max graph pooling -> GRU -> binary head",
+  "architecture": {
+    "node_features": 10,
+    "gcn_hidden": 32,
+    "gcn_layers": 2,
+    "graph_pooling": "mean + max",
+    "gru_hidden": 64,
+    "head_hidden": 32,
+    "dropout": 0.2
+  },
+  "loss": "BCEWithLogitsLoss",
+  "train_pos_weight": 4.1213960546282244,
+  "optimizer": "AdamW",
+  "learning_rate": 0.0008,
+  "weight_decay": 0.0001,
+  "batch_size": 128,
+  "max_epochs": 40,
+  "early_stopping_patience": 6,
+  "early_stopping_metric": "validation AUPRC",
+  "seed": 2718281,
+  "best_epoch": 28,
+  "threshold_source": "calibration only",
+  "threshold_objective": "maximize balanced accuracy",
+  "frozen_threshold": 0.37612987887345023,
+  "test_split_accessed_for_features_or_predictions": false,
+  "versions": {
+    "python": "3.12.2",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "numpy": "2.5.0",
+    "pandas": "3.0.3",
+    "torch": "2.11.0+cpu"
+  }
+}

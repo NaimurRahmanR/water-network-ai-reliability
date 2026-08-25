@@ -1,0 +1,37 @@
+AQUA-VERA WINDOW + NORMALIZATION FREEZE v0.4
+==============================================================================
+STATUS: PASS / FROZEN
+
+WINDOW DESIGN
+  observation window: 24 steps = 120 minutes
+  stride: 6 steps = 30 minutes
+  windows per physical variant: 45
+  total windows: 21,600
+  model-visible features: 33
+
+NORMALIZATION
+  source: TRAIN contexts only
+  physical variants used: CLEAN + LEAK
+  unique 5-min rows used: 86,700
+  near-constant features: 0
+  validation/calibration/test used: NO
+
+SPLIT / CLASS COUNTS
+  train: windows=13,500, positive=2,636, negative=10,864, positive_fraction=19.5259%, contexts=150
+  validation: windows=2,700, positive=580, negative=2,120, positive_fraction=21.4815%, contexts=30
+  calibration: windows=2,700, positive=572, negative=2,128, positive_fraction=21.1852%, contexts=30
+  test: windows=2,700, positive=520, negative=2,180, positive_fraction=19.2593%, contexts=30
+
+INTEGRITY
+  context appears in only one split: PASS
+  matched CLEAN/LEAK pair at each candidate timestamp: PASS
+  CLEAN positive windows: 0
+
+ARTIFACT HASHES
+  window_manifest.csv: ee67fa17f169b9ac3d8b48efa49a6e634dc5ca405dca657ea5f82043c05a301d
+  normalization_train_only.json: a6a4bf24c805e9e02a635cd363b006aab0830ab925fe70b7c9dbe0b0f5e3e1b8
+  window_config.json: d6ff1aa93bf5d607b648d1e6c62c6a6a2d2728204161b372e3ea5d56974cb1a1
+
+NEXT
+  Send window_summary.txt to the research record.
+  If reviewed cleanly, model training may begin.

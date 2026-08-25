@@ -1,0 +1,41 @@
+AQUA-VERA EXTERNAL TRANSFER FAILURE DIAGNOSTIC v0.18
+==============================================================================
+STATUS: COMPLETE / POST-HOC READ-ONLY DIAGNOSTIC
+
+BOUNDARY
+  models retrained: NO
+  thresholds changed: NO
+  external result changed: NO
+
+FEATURE DRIFT 2018 -> 2019
+  PSI >= 0.25: 32/37 features
+  PSI median/max: 0.749274 / 0.960571
+  KS median/max: 0.355289 / 0.402416
+
+CLEAN TRANSFER
+  MLP: AUPRC 0.217896 -> 0.053443; AUROC 0.760338 -> 0.498085
+    ECE15 0.408781 -> 0.418871; score KS/PSI 0.135624/0.089085
+  GCN_GRU: AUPRC 0.072512 -> 0.053366; AUROC 0.642187 -> 0.483409
+    ECE15 0.441046 -> 0.496958; score KS/PSI 0.364062/0.610953
+
+EVENT-WINDOW DETECTION
+  GCN_GRU: groups=19, any detection=18/19, median detected fraction=0.708333, median max probability=0.708818
+  MLP: groups=19, any detection=19/19, median detected fraction=0.291667, median max probability=0.763334
+
+TOP 10 DRIFTED FEATURES
+  pressure__n769: PSI=0.960571, KS=0.402416, |mean shift|/SD18=1.339384
+  pressure__n752: PSI=0.946324, KS=0.399715, |mean shift|/SD18=1.323911
+  pressure__n288: PSI=0.939221, KS=0.401180, |mean shift|/SD18=1.322460
+  pressure__n726: PSI=0.938991, KS=0.401950, |mean shift|/SD18=1.308225
+  pressure__n679: PSI=0.900996, KS=0.393198, |mean shift|/SD18=1.268618
+  pressure__n644: PSI=0.891389, KS=0.393674, |mean shift|/SD18=1.280217
+  pressure__n740: PSI=0.890701, KS=0.383543, |mean shift|/SD18=1.235000
+  pressure__n296: PSI=0.881802, KS=0.381098, |mean shift|/SD18=1.234903
+  pressure__n722: PSI=0.880978, KS=0.387624, |mean shift|/SD18=1.251487
+  pressure__n410: PSI=0.861640, KS=0.386758, |mean shift|/SD18=1.209831
+
+INTERPRETATION
+  Diagnostic only; may characterize failure but must not be used to retune the frozen 2019 test.
+
+NEXT
+  Send transfer_failure_diagnostic_summary_v0_18.txt to the research record.

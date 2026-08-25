@@ -1,0 +1,24 @@
+# Upstream datasets / generated local data
+/data/
+/AQUA_VERA_data/
+/AQUA_VERA_model_ready/
+/contexts/
+*.part
+
+# Local checkpoints and interrupted-run state
+/checkpoints/
+*_RESUME_*.pt
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local experiment output directories outside this repository layout
+/AQUA_VERA_*_v0_*/
+/AQUA_VERA_*_frozen_*/
+/AQUA_VERA_*_2019_*/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

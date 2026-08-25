@@ -1,0 +1,60 @@
+AQUA-VERA BATTLEDIM/L-TOWN TRAIN + RELIABILITY FREEZE v0.16b
+==============================================================================
+STATUS: PASS / MODELS + RELIABILITY REFERENCES FROZEN PRE-2019
+
+BOUNDARY
+  2018 used: YES
+  2019 checked/opened/hashed: NO
+  architecture tuning on BattLeDIM: NO
+  epoch tuning on BattLeDIM: NO
+  predictive threshold tuning: NO
+
+2018 TRAINING SET
+  eligible windows: 17,036
+  positives: 666
+  negatives: 16,370
+  weighted BCE pos_weight: 24.579579580
+
+FROZEN MODELS
+  MLP epochs: 25
+  GCN-GRU epochs: 28
+  predictive threshold: 0.5
+
+2018 DEVELOPMENT-YEAR METRICS — NOT HELD-OUT
+  MLP balanced_accuracy=0.687029, F1=0.157000, AUPRC=0.217896, AUROC=0.760338
+  GCN-GRU balanced_accuracy=0.601326, F1=0.116900, AUPRC=0.072512, AUROC=0.642187
+
+ATTRIBUTION / RELIABILITY REFERENCES
+  clean attribution-subset windows: 1,702
+  MLP entropy q95: 0.999760625
+  MLP attribution-divergence q95: 0.091225953
+  GCN-GRU entropy q95: 0.999978585
+  GCN-GRU attribution-divergence q95: 0.427453306
+  attribution forward max error MLP/GCN: 0 / 0
+
+PRESSURE RECONSTRUCTION
+  33 Ridge models
+  source: all 105,120 unique normalized 2018 SCADA rows
+  alpha: 1.0
+  train R2 min/median/max: 0.982656 / 0.999838 / 0.999962
+
+ARTIFACT HASHES
+  FROZEN_2018_NORMALIZATION.json: 44cab3f6ef97752245bdce42d1cce70db929b6c1325b6e979650067da3f1ee0f
+  FROZEN_LTown_GRAPH_INPUT.json: 89bd64f6758b46af9ba39ea575ab78ee0da042c94a6b706855c89e69141411ff
+  BattLeDIM_MLP_v0_16b.pt: d3a11328c1884481d10177bf624b542e2be0882760e74bb137d6ca28ac385f08
+  BattLeDIM_GCN_GRU_v0_16b.pt: da1b7d0365d2b2a97a7b9b1b9795767163d7a90daaa979e973aa67e907522358
+  2018_mlp_training_history.csv: d3f0724fecdfd6c84d7d2aa07d36933a43d733ab45fa67ebc518ecfbc4bde43b
+  2018_gcn_training_history.csv: d77f8fe659be15daf64ba7e13ded014cf3bfbacab288f8dcbd5a629c22f6760b
+  2018_clean_predictions_v0_16b.csv: 3d972603e72f194104a5f2a32df8bc80052b452267b69b0650ce45cddd1ef6c8
+  2018_attribution_profiles_v0_16b.npz: e29a8a749fa0cffc253ef4070160706454d8dcbb2294f76a5f616d8f6e9cea70
+  2018_attribution_index_v0_16b.csv: c5555d8ad5d8dc81ad16c9f2f75fd489cd1b1f6494e1815e23535338205bf819
+  FROZEN_2018_ATTRIBUTION_CENTROIDS.json: c017d1e933b4378b576d02f13a3a2f4c98c7275fb99ae28e895bdd9e92f6df46
+  FROZEN_2018_RELIABILITY_THRESHOLDS.json: 243ae4956479e7cb244b3a0f877b8826263ee7cd54cda517b20478e6dc6050b2
+  FROZEN_2018_PRESSURE_RECONSTRUCTION.json: 49b2983f040c3e282cb6feddbb4f1b3c2ce326b29d9c4d0da11ae7d460cf2ce7
+  2018_pressure_reconstruction_quality.csv: ce1f7e99e9fbb53d658d66a79f2e00dbbb391857a5dafa80f5cf3f39fa680130
+  2018_development_metrics.json: f36ae314b28cfbd9a2ad6e3e130849ffffa9547fd58c43181970dfa703063e27
+
+NEXT
+  Send BattLeDIM_train_freeze_summary_v0_16b.txt to the research record.
+  If PASS, all model/reliability choices are frozen.
+  The next run may open 2019 exactly once for final external evaluation.

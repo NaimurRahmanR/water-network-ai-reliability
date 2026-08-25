@@ -1,0 +1,13 @@
+{
+  "status": "BASELINE_FROZEN_PRETEST",
+  "artifact_sha256": {
+    "baseline_mlp_v0_5.pt": "3e83192de687c42db771964aa82715b6221ad8dc89423484115a9b6aed23a040",
+    "baseline_config.json": "d11c031777c4881d3b312d2f8f2c61957b96a32699bf12b6cf53a619e6a5a5c6",
+    "pretest_metrics.json": "159faae09c73be7fed12be44e6c012b18a2fd1c794334de3010139c033df3b38",
+    "training_history.csv": "009c1b6a18fbb31123c8029bdea75c71b7e44829f9df721f7e6f3113d3c8816b",
+    "validation_predictions.csv": "448a45035c833874e333aeb6d712630b711ed48c9b3cf0d9098e1f90f0ee1a87",
+    "calibration_predictions.csv": "d32485db004dc38c2b40c18c4b054ecb1f23352440a745044e1a36dd8ad7695c"
+  },
+  "test_evaluated": false,
+  "note": "Baseline frozen before graph-model training and before held-out test evaluation."
+}

@@ -1,0 +1,36 @@
+{
+  "status": "FROZEN",
+  "selection_rule": "95th percentile of uncorrupted calibration signal",
+  "clean_quantile": 0.95,
+  "thresholds": {
+    "MLP": {
+      "entropy_full_q95": 0.96228665714933,
+      "entropy_attr_subset_q95": 0.9715023847878589,
+      "attribution_divergence_q95": 0.09817149902605746,
+      "clean_quantile": 0.95,
+      "source": "uncorrupted calibration only"
+    },
+    "GCN_GRU": {
+      "entropy_full_q95": 0.9684203369272691,
+      "entropy_attr_subset_q95": 0.9624693004500001,
+      "attribution_divergence_q95": 0.27705293114848445,
+      "clean_quantile": 0.95,
+      "source": "uncorrupted calibration only"
+    }
+  },
+  "action_mapping": {
+    "entropy_low_attribution_low": "PROCEED",
+    "entropy_high_attribution_low": "VERIFY",
+    "entropy_low_attribution_high": "REQUEST_SENSOR",
+    "entropy_high_attribution_high": "ESCALATE",
+    "known_missing_sensor_mask": "RECONSTRUCT first, then apply same dual-signal mapping"
+  },
+  "missing_reconstruction": {
+    "method": "per-pressure-sensor Ridge regression",
+    "alpha": 1.0,
+    "training_source": "86,700 unique TRAIN rows only",
+    "multi_missing": "simultaneous one-pass",
+    "GCN_observation_mask_after_reconstruction": 0
+  },
+  "test_or_degraded_test_used_for_threshold_selection": false
+}

@@ -1,0 +1,5 @@
+model,state,proceed_rate,unsafe_proceed
+MLP,clean,0.86,0.026667
+MLP,degraded,0.824889,0.170111
+GCN_GRU,clean,0.903333,0.058333
+GCN_GRU,degraded,0.775093,0.079722

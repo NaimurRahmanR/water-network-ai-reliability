@@ -1,0 +1,22 @@
+{
+  "node_count": 97,
+  "node_feature_channels": [
+    "normalized_pressure",
+    "pressure_mask",
+    "normalized_tank_level",
+    "tank_mask",
+    "signed_normalized_observed_flow_aggregate",
+    "observed_flow_incidence_count",
+    "normalized_degree",
+    "junction_indicator",
+    "tank_indicator",
+    "reservoir_indicator"
+  ],
+  "pressure_sensor_count": 24,
+  "flow_sensor_count": 6,
+  "tank_sensor_count": 3,
+  "gcn_adjacency": "undirected original Net3 links + self loops; symmetric D^-1/2 A D^-1/2",
+  "flow_direction_convention": "negative at original start node, positive at original end node",
+  "normalization": "frozen train-only per original sensor feature",
+  "test_features_loaded": false
+}

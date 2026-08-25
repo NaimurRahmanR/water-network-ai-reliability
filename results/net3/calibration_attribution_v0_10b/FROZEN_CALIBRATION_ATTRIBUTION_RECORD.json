@@ -1,0 +1,13 @@
+{
+  "status": "FROZEN_CALIBRATION_ATTRIBUTION_OUTPUTS",
+  "artifact_sha256": {
+    "calibration_attribution_profiles.npz": "3b5d1e10b8c5c0bab327e74e8d47a0c21466bb9f24751efa9a823702f709b9d1",
+    "calibration_attribution_index.csv": "3ee003c17dcd5a655b28abfbe86b510907cdd040717e7b52b6e632205dc7ff79",
+    "calibration_attribution_detection.csv": "248aec709ea357fe52cf68b62b07d3ba8d4e49ce864a55f6a80baa174069750f",
+    "calibration_attribution_centroids.json": "98c54574ef8a706fffe6d073017347745f2f6c07b4633bcb806e8cb94d162927",
+    "calibration_attribution_execution.json": "c7d6933f782dbf8b266f29b93ba9bd76e76d00ca71981116e5e8553ac66b1786"
+  },
+  "degraded_test_loaded": false,
+  "models_retrained": false,
+  "thresholds_changed": false
+}

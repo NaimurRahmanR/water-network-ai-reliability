@@ -1,0 +1,48 @@
+AQUA-VERA GRAPH GCN-GRU v0.6
+==============================================================================
+STATUS: PASS / GRAPH MODEL FROZEN PRE-TEST
+
+MODEL
+  dynamic graph: 97 Net3 nodes
+  node features: 10
+  GCN: 10 -> 32 -> 32
+  pooling: mean + max -> 64
+  GRU hidden: 64
+  head: 64 -> 32 -> 1
+  dropout: 0.2
+  weighted BCE pos_weight: 4.12139605
+  seed: 2718281
+  best epoch: 28
+
+VALIDATION (threshold=0.5; descriptive)
+  AUPRC: 0.743199
+  AUROC: 0.855024
+  balanced accuracy: 0.745633
+  F1: 0.635514
+  Brier: 0.104512
+  ECE(15): 0.067817
+
+CALIBRATION
+  frozen threshold: 0.376129878873
+  balanced accuracy: 0.824810
+  F1: 0.743709
+  AUPRC: 0.828675
+  AUROC: 0.909701
+
+HELD-OUT TEST
+  context files loaded: NO
+  predictions generated: NO
+  metrics inspected: NO
+
+ARTIFACT HASHES
+  graph_gcn_gru_v0_6.pt: c8d104c5512556dbbcb459eb63ccef8ba8e71cb04fc9b22a5b16c23eee51e0af
+  graph_model_config.json: 73f0b36ab7e4b75afa3593950e1b382c3e8b86ace314095cd18df07c50822651
+  pretest_metrics.json: 0d97c90c5ef88d6e1e41229983d864e6f3821d93a6602f7a95745e1b87448f97
+  graph_input_definition.json: 7d3db649ecf035fbca8ff744dcbaca6ed3cb85523b3123557fb4eff94ebc4726
+  training_history.csv: 49683551a247a2aedb55ac64b52fbf2957d014ae2ea91b65a6ac8b2072b40926
+  validation_predictions.csv: b8ee98f45e8351d755a3133e02738c2cc3a63a6933cde563b8898e65a2c9a8a3
+  calibration_predictions.csv: ab5a8f260229351b8b0edbfb4198c9b549313f36f2cc727bf60919bfcba723d4
+
+NEXT
+  Send graph_summary.txt to the research record.
+  If clean, both model families are frozen and the controlled held-out test may be opened once.

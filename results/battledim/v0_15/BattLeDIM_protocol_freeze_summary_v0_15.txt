@@ -1,0 +1,52 @@
+AQUA-VERA BATTLEDIM/L-TOWN EXTERNAL PROTOCOL FREEZE v0.15
+==============================================================================
+STATUS: PASS / PROTOCOL FROZEN PRETRAINING
+Protocol SHA-256: 058bc380aac09ca5b6874fbd5d58155dfbdebb4e499dd608209358d0ebeb525d
+
+BOUNDARY
+  2018 parsed: YES
+  2019 opened/hashed: NO
+  models trained: NO
+  predictive threshold optimized: NO
+
+FROZEN EXTERNAL TASK
+  target: at least one leak onset in previous 24 hours
+  input window: 2 hours
+  stride: 30 minutes
+  repair/end guard: first 24 hours after end transition excluded
+  existing older active leaks without new onset: valid negatives
+
+2018 DEVELOPMENT ACCOUNTING
+  leakage onset events: 14
+  candidate windows: 17,517
+  eligible windows: 17,036
+  positive windows: 666
+  negative windows: 16,370
+  positive fraction: 3.9094%
+  eligible attribution-subset windows: 1,702
+
+EXTERNAL DEGRADATIONS
+  MISSING_SENSOR
+  SENSOR_NOISE
+  SENSOR_BIAS
+  STALE_SENSOR
+  TOPOLOGY_MISMATCH (GCN-GRU only)
+  CROSS_SOURCE_CONFLICT omitted: no matched counterfactual in BattLeDIM
+
+MODEL POLICY
+  transferred AQUA-VERA architectures/training recipes
+  MLP fixed 25 epochs
+  GCN-GRU fixed 28 epochs
+  predictive threshold 0.5
+  no BattLeDIM architecture or epoch tuning
+
+ARTIFACT HASHES
+  2018_frozen_onset_events.csv: 75e10bef517df5d94d0f47fd9d9d35f1a747c0fab939608a5de903b8998939b0
+  2018_frozen_window_manifest_v0_15.csv: cae5f9f968c0b94038a4822db093e51e44e11a0f08061cc332c68a558fe18608
+  FROZEN_BATTLEDIM_PROTOCOL_RECORD_v0_15.json: cb9ec4d5616da7c2481c815f7b97c60c1f4193cbc9ebf90b750723c1462cda54
+  BattLeDIM_external_protocol_v0_15.md: 058bc380aac09ca5b6874fbd5d58155dfbdebb4e499dd608209358d0ebeb525d
+
+NEXT
+  Send BattLeDIM_protocol_freeze_summary_v0_15.txt to the research record.
+  If PASS, train/freeze the two 2018 models and reliability references.
+  Do not inspect 2019.

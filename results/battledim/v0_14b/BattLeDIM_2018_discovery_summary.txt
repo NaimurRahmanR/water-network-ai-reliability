@@ -1,0 +1,54 @@
+AQUA-VERA BATTLEDIM/L-TOWN EXTERNAL VALIDATION — 2018 DISCOVERY v0.14b
+==============================================================================
+STATUS: PASS / 2018-ONLY FEASIBILITY AUDIT COMPLETE
+
+BOUNDARY
+  2018 parsed: YES
+  2019 checked/opened/hashed: NO
+  model trained: NO
+  split frozen: NO
+  threshold selected: NO
+
+DISCOVERED INPUTS
+  SCADA: C:\Users\<user>\Downloads\AQUA_VERA_model_ready\2018_scada_model_ready.csv
+  leakages: C:\Users\<user>\Downloads\AQUA_VERA_model_ready\2018_leakages_model_ready.csv
+  L-TOWN.inp: C:\Users\<user>\Downloads\AQUA_VERA_data\BattLeDIM_LTown\L-TOWN.inp
+
+2018 DATA
+  rows: 105,120
+  SCADA features: 37 (pressure=33, flow=3, level=1)
+  leakage columns: 14
+
+DISCOVERY-ONLY CANDIDATE LEAK ACTIVITY
+  diagnostic rule: any leakage column > 0 at timestamp
+  FINAL LABEL SEMANTICS FROZEN: NO
+  active rows: 102,810/105,120 (97.8025%)
+  rows with >=2 active columns: 98,497
+  max simultaneous active columns: 6
+  per-column contiguous intervals: 14
+  global active components: 1
+
+2-HOUR / 30-MINUTE CANDIDATE WINDOWS
+  total: 17,517
+  positive-final: 17,135
+  positive fraction: 97.8193%
+
+L-TOWN GRAPH
+  nodes: 785
+  edges: 909
+  pressure sensor IDs not mapped to nodes: 0
+  flow sensor IDs not mapped to links: 0
+  level sensor IDs not mapped to nodes: 0
+
+ARTIFACT HASHES
+  2018_leak_column_audit.csv: fa7bbce7df9daf135f74eca03141441906adea4a2743afee92e579e9c711de7c
+  2018_leak_intervals_candidate_positive.csv: c120b5c6637e500d1a552dddf3466623ecdf16bc39eb0a6592fc0012347c7c39
+  2018_global_active_components.csv: efb93516cb3f3a8ec1a2664095d457f02079187ba94afcf9d4dcdf542e74bf1a
+  2018_candidate_windows_2h_stride30m.csv: db3cc9997a55e363930f1f1ac425de9cead8f41c8c40efbb391375c5be15671c
+  2018_monthly_balance.csv: 7f63792e92e90a0cc4c11ed0b33c0d33ffbdd8e802cd2d0f6540aae1da3172c1
+  2018_graph_sensor_mapping.json: 445db0274a4ed9b68742eee283f515ecf284797bb666f13bfce941d8fd4ce388
+  DISCOVERY_RECORD_v0_14b.json: 037985778ca1baec98c32c230c787e27a67b405dcc6152afc70176999cc076fc
+
+NEXT
+  Send BattLeDIM_2018_discovery_summary.txt to the research record.
+  Do not model or inspect 2019.

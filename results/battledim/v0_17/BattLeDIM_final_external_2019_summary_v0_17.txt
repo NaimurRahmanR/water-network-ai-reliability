@@ -1,0 +1,68 @@
+AQUA-VERA BATTLEDIM/L-TOWN FINAL EXTERNAL 2019 EVALUATION v0.17
+==============================================================================
+STATUS: PASS / FINAL EXTERNAL 2019 EVALUATION COMPLETE
+
+INTEGRITY
+  evaluator source SHA-256: e0788aa1d9991f923f6e718a6832c91842fe9c8536b7285ddb3258a3c0a7242a
+  evaluation attempts started/completed: 1/1
+  frozen MLP/GCN changed after 2019: NO
+  frozen thresholds/controller/reconstruction changed after 2019: NO
+  post-2019 tuning: NO
+
+2019 TARGET ACCOUNTING
+  leakage columns: 23
+  observed within-2019 onset transitions: 19
+  observed within-2019 end transitions: 7
+  candidate windows: 17,517
+  eligible windows: 17,181
+  positives: 887
+  negatives: 16,294
+  positive fraction: 5.1627%
+  attribution subset: 1,720
+
+CLEAN EXTERNAL PREDICTIVE METRICS
+  MLP: balanced_accuracy=0.483765, F1=0.084387, AUPRC=0.053443, AUROC=0.498085, Brier=0.249789
+  GCN_GRU: balanced_accuracy=0.472635, F1=0.087472, AUPRC=0.053366, AUROC=0.483409, Brier=0.307372
+
+FULL-SET ENTROPY EVIDENCE-FAILURE DETECTION
+  AUROC min/median/max: 0.267911 / 0.498144 / 0.577386
+
+ATTRIBUTION DIVERGENCE VS ENTROPY — SAME FROZEN SUBSET
+  attribution AUROC min/median/max: 0.490150 / 0.532679 / 0.934515
+  conditions attribution AUROC > entropy AUROC: 23/27
+
+MISSING-SENSOR RECONSTRUCTION — FULL EXTERNAL SET
+  MLP low: pre=0.673360, post=0.587335, delta=-0.086025
+  MLP medium: pre=0.654036, post=0.554450, delta=-0.099587
+  MLP high: pre=0.766603, post=0.789535, delta=+0.022932
+  GCN_GRU low: pre=0.380944, post=0.357313, delta=-0.023631
+  GCN_GRU medium: pre=0.378965, post=0.349223, delta=-0.029742
+  GCN_GRU high: pre=0.396543, post=0.242303, delta=-0.154240
+
+FROZEN CONTROLLER — ATTRIBUTION SUBSET
+  MLP clean: n=1720, raw_error=0.411047, recovery_forced_error=0.411047, proceed=0.898837, unsafe_proceed=0.341860, unsafe_reduction_vs_raw=0.069186
+  MLP degraded: n=20640, raw_error=0.424079, recovery_forced_error=0.436967, proceed=0.884351, unsafe_proceed=0.357655, unsafe_reduction_vs_raw=0.066424
+  GCN_GRU clean: n=1720, raw_error=0.609302, recovery_forced_error=0.609302, proceed=0.786047, unsafe_proceed=0.434302, unsafe_reduction_vs_raw=0.175000
+  GCN_GRU degraded: n=25800, raw_error=0.705000, recovery_forced_error=0.718837, proceed=0.718217, unsafe_proceed=0.474186, unsafe_reduction_vs_raw=0.230814
+
+ARTIFACT HASHES
+  2019_external_window_manifest.csv: 078b1fa238469047b7f4dc199f2fb11e871735d25ccd52e2af56c8ecb09652eb
+  2019_external_event_transitions.csv: cc82a9826f9d0ea88251d203ce7b4c29f9777b86ef514441edf7896ce57d5d4f
+  2019_external_predictions.csv: bd688f47767be93ffbab771b71773d48db7341523b0469c422a8df3bce027efc
+  2019_external_condition_metrics.csv: 32bd23a51c7848a2c7278e7bc0f59818f4dfc2409c73695171a6570d9e50cc78
+  2019_entropy_detection.csv: 68c5f877ac782d8638ad79a03deb43827261d07877505a8da48ff4ad2999c271
+  2019_external_attribution_profiles.npz: 3c2792bb1af7c54d16e8444471fc46561c69ea1ed9e5ea159018750276f43778
+  2019_external_attribution_index.csv: 2d9d67b22385b98b1dbddf4d8695d9e2c0294821fae7e7f97abe31b99a40df79
+  2019_attribution_detection.csv: 7e7a0a7bdcb3eec2b3dabe1de6ce291f91eefa93b48bde407b05ea2b3fe75e82
+  2019_missing_reconstruction.csv: dc399020b8f885beddbc85b2adc989237cfb519bc565c88cfec4602a92024c5b
+  2019_missing_reconstruction_attribution.csv: 8613486012769344ff64b7fef5f808b40131a7f68ca3c6d863a55057cc65cf7c
+  2019_missing_reconstruction_metrics.csv: 8a359a5190a3cdf0a65d9f865fdb7a2f81aa56cfeaf41f8fabdee9950ce7abdc
+  2019_controller_outcomes.csv: 2c25ac5ed00409bcc326f9372de1b17f993f381faf56041da469e500b90096a2
+  2019_controller_metrics.csv: e09acfafd3f8b6739c526ebc87af7f991f413d45ce3d30ace1dba7397d1fd7c4
+  2019_controller_overall.csv: fd744c70ba044fd869edb7a36f013fa25709b762f6790083bf86660ad98e5c0f
+  FINAL_EXTERNAL_2019_RECORD_v0_17.json: 7b36cfca47dfbd598adb0ca0509d37d63be43c625e1ec3c5b3dee6bf407e6517
+
+NEXT
+  Send BattLeDIM_final_external_2019_summary_v0_17.txt to the research record.
+  Do not retrain, retune, or regenerate conditions from 2019 results.
+  Next step is reproducibility external-validation audit and final interpretation.

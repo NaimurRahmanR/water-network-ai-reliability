@@ -1,0 +1,9 @@
+# Exact versions explicitly captured by frozen experiment artifacts
+numpy==2.5.0
+pandas==3.0.3
+torch==2.11.0+cpu
+wntr==1.5.0
+
+# Required by later stages; exact historical versions not preserved
+scikit-learn
+networkx

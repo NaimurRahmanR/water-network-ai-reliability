@@ -1,0 +1,42 @@
+{
+  "status": "BASELINE_FROZEN_PRETEST",
+  "model": "Flattened 2h temporal MLP",
+  "architecture": [
+    792,
+    256,
+    64,
+    1
+  ],
+  "activations": [
+    "ReLU",
+    "ReLU"
+  ],
+  "dropout": 0.2,
+  "loss": "BCEWithLogitsLoss",
+  "train_pos_weight": 4.1213960546282244,
+  "optimizer": "AdamW",
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "batch_size": 256,
+  "max_epochs": 50,
+  "early_stopping_patience": 7,
+  "early_stopping_metric": "validation AUPRC",
+  "seed": 314159,
+  "best_epoch": 25,
+  "threshold_source": "calibration only",
+  "threshold_objective": "maximize balanced accuracy",
+  "frozen_threshold": 0.464201702923066,
+  "test_split_accessed_for_features_or_predictions": false,
+  "window_hashes_verified": {
+    "window_manifest.csv": "ee67fa17f169b9ac3d8b48efa49a6e634dc5ca405dca657ea5f82043c05a301d",
+    "normalization_train_only.json": "a6a4bf24c805e9e02a635cd363b006aab0830ab925fe70b7c9dbe0b0f5e3e1b8",
+    "window_config.json": "d6ff1aa93bf5d607b648d1e6c62c6a6a2d2728204161b372e3ea5d56974cb1a1"
+  },
+  "versions": {
+    "python": "3.12.2",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "numpy": "2.5.0",
+    "pandas": "3.0.3",
+    "torch": "2.11.0+cpu"
+  }
+}

@@ -1,0 +1,494 @@
+{
+  "status": "COLLECTED",
+  "collector_version": "0.13",
+  "purpose": "reproducibility post-experiment numerical, accounting, integrity, and claim audit",
+  "experiment_rerun": false,
+  "experiment_files_modified": false,
+  "final_v0_12_hash_verification": {
+    "heldout_corruption_manifest.csv": {
+      "expected": "940a897207258b588a79240337e96956ac7ef333758e1249845e5817a57c0a83",
+      "actual": "940a897207258b588a79240337e96956ac7ef333758e1249845e5817a57c0a83",
+      "match": true
+    },
+    "heldout_degradation_predictions.csv": {
+      "expected": "ace62010843176a1ee94f877810c0d889b04dcf713981e48011589dcc8f832c5",
+      "actual": "ace62010843176a1ee94f877810c0d889b04dcf713981e48011589dcc8f832c5",
+      "match": true
+    },
+    "heldout_condition_metrics.csv": {
+      "expected": "32b167315a761f7d4f6e386eeb27ad7b0bd170a87c170e1efc998f02477a5f60",
+      "actual": "32b167315a761f7d4f6e386eeb27ad7b0bd170a87c170e1efc998f02477a5f60",
+      "match": true
+    },
+    "heldout_entropy_detection.csv": {
+      "expected": "36b424ae7e78e4f08d91d9c26da4830071371e4a9b78edf621f1908e8778280f",
+      "actual": "36b424ae7e78e4f08d91d9c26da4830071371e4a9b78edf621f1908e8778280f",
+      "match": true
+    },
+    "heldout_missing_reconstruction.csv": {
+      "expected": "eb7c4812878aa215db21a1277126e992290efa3d33ae2cfce325b819d90989ff",
+      "actual": "eb7c4812878aa215db21a1277126e992290efa3d33ae2cfce325b819d90989ff",
+      "match": true
+    },
+    "heldout_missing_reconstruction_metrics.csv": {
+      "expected": "974037609b7d0087681d0aea526b908cef3ceaee997557118a9ef5f12ea1f134",
+      "actual": "974037609b7d0087681d0aea526b908cef3ceaee997557118a9ef5f12ea1f134",
+      "match": true
+    },
+    "heldout_attribution_profiles.npz": {
+      "expected": "77b3ff4471a7ebacd710d42bca0550ce5ae392a276893c5aafc9b4d9b64cf904",
+      "actual": "77b3ff4471a7ebacd710d42bca0550ce5ae392a276893c5aafc9b4d9b64cf904",
+      "match": true
+    },
+    "heldout_attribution_index.csv": {
+      "expected": "0d9f2c98396ea9c7acb3ae92b3f79fc6d46bf6c14ef8e8a7d9391dd3eaa9d3c2",
+      "actual": "0d9f2c98396ea9c7acb3ae92b3f79fc6d46bf6c14ef8e8a7d9391dd3eaa9d3c2",
+      "match": true
+    },
+    "heldout_attribution_detection.csv": {
+      "expected": "c66a321a3198f5b4867ff8dd7474f1a213c74a273e2105c91b9d17fc6ce1f0cc",
+      "actual": "c66a321a3198f5b4867ff8dd7474f1a213c74a273e2105c91b9d17fc6ce1f0cc",
+      "match": true
+    },
+    "heldout_missing_reconstruction_attribution.csv": {
+      "expected": "b3e80bb216686dd5a157c892c7b56e57f318483c2112b66eadac3d512ed70335",
+      "actual": "b3e80bb216686dd5a157c892c7b56e57f318483c2112b66eadac3d512ed70335",
+      "match": true
+    },
+    "heldout_controller_outcomes.csv": {
+      "expected": "806bcee09b11105ab9ee7d88282dc9eec90fbe24ce63a105e97947c545ce7104",
+      "actual": "806bcee09b11105ab9ee7d88282dc9eec90fbe24ce63a105e97947c545ce7104",
+      "match": true
+    },
+    "heldout_controller_metrics.csv": {
+      "expected": "7dbe9306449a0feb40e8edca88d0c99ae7414d309e9d3d051e62c29d6a703f84",
+      "actual": "7dbe9306449a0feb40e8edca88d0c99ae7414d309e9d3d051e62c29d6a703f84",
+      "match": true
+    },
+    "heldout_controller_overall.csv": {
+      "expected": "15fed93a455d13063db72c53bcc3e514e4e8f8e38bbb1523416276d921ce4802",
+      "actual": "15fed93a455d13063db72c53bcc3e514e4e8f8e38bbb1523416276d921ce4802",
+      "match": true
+    }
+  },
+  "missing_optional_files": [
+    "C:\\Users\\naimu\\Downloads\\AQUA_VERA_heldout_test_v0_7b\\heldout_test_metrics.json",
+    "C:\\Users\\naimu\\Downloads\\AQUA_VERA_heldout_test_v0_7b\\HELDOUT_TEST_RECORD.json",
+    "C:\\Users\\naimu\\Downloads\\AQUA_VERA_heldout_test_v0_7b\\heldout_test_summary_v0_7b.txt"
+  ],
+  "files": [
+    {
+      "group": "final_v0_12",
+      "filename": "heldout_corruption_manifest.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_final_degraded_test_v0_12\\heldout_corruption_manifest.csv",
+      "size_bytes": 32447,
+      "sha256": "940a897207258b588a79240337e96956ac7ef333758e1249845e5817a57c0a83"
+    },
+    {
+      "group": "final_v0_12",
+      "filename": "heldout_degradation_predictions.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_final_degraded_test_v0_12\\heldout_degradation_predictions.csv",
+      "size_bytes": 11682551,
+      "sha256": "ace62010843176a1ee94f877810c0d889b04dcf713981e48011589dcc8f832c5"
+    },
+    {
+      "group": "final_v0_12",
+      "filename": "heldout_condition_metrics.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_final_degraded_test_v0_12\\heldout_condition_metrics.csv",
+      "size_bytes": 5195,
+      "sha256": "32b167315a761f7d4f6e386eeb27ad7b0bd170a87c170e1efc998f02477a5f60"
+    },
+    {
+      "group": "final_v0_12",
+      "filename": "heldout_entropy_detection.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_final_degraded_test_v0_12\\heldout_entropy_detection.csv",
+      "size_bytes": 2235,
+      "sha256": "36b424ae7e78e4f08d91d9c26da4830071371e4a9b78edf621f1908e8778280f"
+    },
+    {
+      "group": "final_v0_12",
+      "filename": "heldout_missing_reconstruction.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_final_degraded_test_v0_12\\heldout_missing_reconstruction.csv",
+      "size_bytes": 923207,
+      "sha256": "eb7c4812878aa215db21a1277126e992290efa3d33ae2cfce325b819d90989ff"
+    },
+    {
+      "group": "final_v0_12",
+      "filename": "heldout_missing_reconstruction_metrics.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_final_degraded_test_v0_12\\heldout_missing_reconstruction_metrics.csv",
+      "size_bytes": 528,
+      "sha256": "974037609b7d0087681d0aea526b908cef3ceaee997557118a9ef5f12ea1f134"
+    },
+    {
+      "group": "final_v0_12",
+      "filename": "heldout_attribution_profiles.npz",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_final_degraded_test_v0_12\\heldout_attribution_profiles.npz",
+      "size_bytes": 2332140,
+      "sha256": "77b3ff4471a7ebacd710d42bca0550ce5ae392a276893c5aafc9b4d9b64cf904"
+    },
+    {
+      "group": "final_v0_12",
+      "filename": "heldout_attribution_index.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_final_degraded_test_v0_12\\heldout_attribution_index.csv",
+      "size_bytes": 2464991,
+      "sha256": "0d9f2c98396ea9c7acb3ae92b3f79fc6d46bf6c14ef8e8a7d9391dd3eaa9d3c2"
+    },
+    {
+      "group": "final_v0_12",
+      "filename": "heldout_attribution_detection.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_final_degraded_test_v0_12\\heldout_attribution_detection.csv",
+      "size_bytes": 4203,
+      "sha256": "c66a321a3198f5b4867ff8dd7474f1a213c74a273e2105c91b9d17fc6ce1f0cc"
+    },
+    {
+      "group": "final_v0_12",
+      "filename": "heldout_missing_reconstruction_attribution.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_final_degraded_test_v0_12\\heldout_missing_reconstruction_attribution.csv",
+      "size_bytes": 383869,
+      "sha256": "b3e80bb216686dd5a157c892c7b56e57f318483c2112b66eadac3d512ed70335"
+    },
+    {
+      "group": "final_v0_12",
+      "filename": "heldout_controller_outcomes.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_final_degraded_test_v0_12\\heldout_controller_outcomes.csv",
+      "size_bytes": 2296055,
+      "sha256": "806bcee09b11105ab9ee7d88282dc9eec90fbe24ce63a105e97947c545ce7104"
+    },
+    {
+      "group": "final_v0_12",
+      "filename": "heldout_controller_metrics.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_final_degraded_test_v0_12\\heldout_controller_metrics.csv",
+      "size_bytes": 5816,
+      "sha256": "7dbe9306449a0feb40e8edca88d0c99ae7414d309e9d3d051e62c29d6a703f84"
+    },
+    {
+      "group": "final_v0_12",
+      "filename": "heldout_controller_overall.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_final_degraded_test_v0_12\\heldout_controller_overall.csv",
+      "size_bytes": 577,
+      "sha256": "15fed93a455d13063db72c53bcc3e514e4e8f8e38bbb1523416276d921ce4802"
+    },
+    {
+      "group": "final_v0_12",
+      "filename": "FINAL_DEGRADED_TEST_RECORD.json",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_final_degraded_test_v0_12\\FINAL_DEGRADED_TEST_RECORD.json",
+      "size_bytes": 1882,
+      "sha256": "5d9a603b48ddffd266b171b1aa54ecb4753876af783b4b8031f1b22ce01aeae1"
+    },
+    {
+      "group": "final_v0_12",
+      "filename": "final_degraded_test_summary.txt",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_final_degraded_test_v0_12\\final_degraded_test_summary.txt",
+      "size_bytes": 3464,
+      "sha256": "3bbbc5f2b2975495e7b4e23ff5488ac1baf55cf800cdff59b41968f39937fd89"
+    },
+    {
+      "group": "controller_v0_11",
+      "filename": "FROZEN_CONTROLLER_THRESHOLDS.json",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_controller_frozen_v0_11\\FROZEN_CONTROLLER_THRESHOLDS.json",
+      "size_bytes": 1323,
+      "sha256": "6b47c2b842a43166558cce1741ad99f069e41fe226b98342fc672ad7c14b5c81"
+    },
+    {
+      "group": "controller_v0_11",
+      "filename": "FROZEN_CONTROLLER_RECORD.json",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_controller_frozen_v0_11\\FROZEN_CONTROLLER_RECORD.json",
+      "size_bytes": 1062,
+      "sha256": "4840d7b57d07a28c31dd0db2263439f7dd6056051c646f13a41b6939c74da1bd"
+    },
+    {
+      "group": "controller_v0_11",
+      "filename": "pressure_reconstruction_ridge.json",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_controller_frozen_v0_11\\pressure_reconstruction_ridge.json",
+      "size_bytes": 36729,
+      "sha256": "e7d871b91ad8e90dbb696497738436a88a4169574340c8be15a41d4b4afe5dcb"
+    },
+    {
+      "group": "controller_v0_11",
+      "filename": "pressure_reconstruction_train_quality.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_controller_frozen_v0_11\\pressure_reconstruction_train_quality.csv",
+      "size_bytes": 1077,
+      "sha256": "b79a442197c64ac0c059995d29a61d98c6be1b784a26923f4e2323ccd557327a"
+    },
+    {
+      "group": "controller_v0_11",
+      "filename": "calibration_missing_reconstruction_outcomes.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_controller_frozen_v0_11\\calibration_missing_reconstruction_outcomes.csv",
+      "size_bytes": 383942,
+      "sha256": "c856826e64d85c8ccef39695c384157a6b023e16493d66f9d881399a29ef3800"
+    },
+    {
+      "group": "controller_v0_11",
+      "filename": "calibration_controller_outcomes.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_controller_frozen_v0_11\\calibration_controller_outcomes.csv",
+      "size_bytes": 2272309,
+      "sha256": "62425e3e189bf8a1a31d78f6e7e5cd87da2bc4c001c608033ddd3f3cc371b2c8"
+    },
+    {
+      "group": "controller_v0_11",
+      "filename": "calibration_controller_metrics.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_controller_frozen_v0_11\\calibration_controller_metrics.csv",
+      "size_bytes": 4625,
+      "sha256": "a9fffd93a1c27c14cc330dd9b984bcddbd051e4ec991872b462fa8db0860d2df"
+    },
+    {
+      "group": "controller_v0_11",
+      "filename": "calibration_controller_overall.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_controller_frozen_v0_11\\calibration_controller_overall.csv",
+      "size_bytes": 342,
+      "sha256": "9da752205c0b9e2640cf559faef7c03984317fb5824c71d2d3079f252da15f06"
+    },
+    {
+      "group": "controller_v0_11",
+      "filename": "controller_freeze_summary.txt",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_controller_frozen_v0_11\\controller_freeze_summary.txt",
+      "size_bytes": 3077,
+      "sha256": "beab0c44d3465819032513b691513084b42ed9a22d24d54c02c1b58daf0abd90"
+    },
+    {
+      "group": "attribution_v0_10b",
+      "filename": "calibration_attribution_profiles.npz",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_calibration_attribution_v0_10b\\calibration_attribution_profiles.npz",
+      "size_bytes": 2352761,
+      "sha256": "3b5d1e10b8c5c0bab327e74e8d47a0c21466bb9f24751efa9a823702f709b9d1"
+    },
+    {
+      "group": "attribution_v0_10b",
+      "filename": "calibration_attribution_index.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_calibration_attribution_v0_10b\\calibration_attribution_index.csv",
+      "size_bytes": 2791056,
+      "sha256": "3ee003c17dcd5a655b28abfbe86b510907cdd040717e7b52b6e632205dc7ff79"
+    },
+    {
+      "group": "attribution_v0_10b",
+      "filename": "calibration_attribution_detection.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_calibration_attribution_v0_10b\\calibration_attribution_detection.csv",
+      "size_bytes": 5187,
+      "sha256": "248aec709ea357fe52cf68b62b07d3ba8d4e49ce864a55f6a80baa174069750f"
+    },
+    {
+      "group": "attribution_v0_10b",
+      "filename": "calibration_attribution_centroids.json",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_calibration_attribution_v0_10b\\calibration_attribution_centroids.json",
+      "size_bytes": 4347,
+      "sha256": "98c54574ef8a706fffe6d073017347745f2f6c07b4633bcb806e8cb94d162927"
+    },
+    {
+      "group": "attribution_v0_10b",
+      "filename": "calibration_attribution_execution.json",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_calibration_attribution_v0_10b\\calibration_attribution_execution.json",
+      "size_bytes": 1248,
+      "sha256": "c7d6933f782dbf8b266f29b93ba9bd76e76d00ca71981116e5e8553ac66b1786"
+    },
+    {
+      "group": "attribution_v0_10b",
+      "filename": "FROZEN_CALIBRATION_ATTRIBUTION_RECORD.json",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_calibration_attribution_v0_10b\\FROZEN_CALIBRATION_ATTRIBUTION_RECORD.json",
+      "size_bytes": 750,
+      "sha256": "14b18d8b687918b0fb17aa16609f9efdea09b70f162a69a17d83765143cec2cd"
+    },
+    {
+      "group": "attribution_v0_10b",
+      "filename": "calibration_attribution_summary.txt",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_calibration_attribution_v0_10b\\calibration_attribution_summary.txt",
+      "size_bytes": 1841,
+      "sha256": "0bee2a151ee966d1bebc573410b167392593b83bfbad5a8498fcd5188f69a0f0"
+    },
+    {
+      "group": "degradations_v0_9b",
+      "filename": "calibration_degradation_predictions.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_calibration_degradations_v0_9b\\calibration_degradation_predictions.csv",
+      "size_bytes": 11683057,
+      "sha256": "36edd2accc9c990d5806a48079348f18319554bc86fa08717597f29df3a2429e"
+    },
+    {
+      "group": "degradations_v0_9b",
+      "filename": "calibration_corruption_manifest.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_calibration_degradations_v0_9b\\calibration_corruption_manifest.csv",
+      "size_bytes": 32439,
+      "sha256": "df467191e0acc4b257ad6ae8002468d10943352e5b741e9f1d8d34519d0117a8"
+    },
+    {
+      "group": "degradations_v0_9b",
+      "filename": "calibration_condition_metrics.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_calibration_degradations_v0_9b\\calibration_condition_metrics.csv",
+      "size_bytes": 5163,
+      "sha256": "085a4e1d3f3f3c85f29ad2b5ac153396b55f019a4c18eeb922a4a774b67931f8"
+    },
+    {
+      "group": "degradations_v0_9b",
+      "filename": "calibration_entropy_detection.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_calibration_degradations_v0_9b\\calibration_entropy_detection.csv",
+      "size_bytes": 2616,
+      "sha256": "855317985d3578fc8daf3173d16d9418020a80bdb0c0ebb8c7d5bb0640d38ffe"
+    },
+    {
+      "group": "degradations_v0_9b",
+      "filename": "calibration_degradation_execution.json",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_calibration_degradations_v0_9b\\calibration_degradation_execution.json",
+      "size_bytes": 718,
+      "sha256": "8a4dcbe09472d2c8cf51d326a80c8c2b2f1d1b43947320484066d6d124167b00"
+    },
+    {
+      "group": "degradations_v0_9b",
+      "filename": "FROZEN_CALIBRATION_DEGRADATION_RECORD.json",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_calibration_degradations_v0_9b\\FROZEN_CALIBRATION_DEGRADATION_RECORD.json",
+      "size_bytes": 746,
+      "sha256": "8579e9231dd9303f5c3aa7656ef555ae8ea16f7482868277c0d596fa0b525303"
+    },
+    {
+      "group": "degradations_v0_9b",
+      "filename": "calibration_degradation_summary.txt",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_calibration_degradations_v0_9b\\calibration_degradation_summary.txt",
+      "size_bytes": 1499,
+      "sha256": "849594b8a07a9253a1c95ed4c6fe1f2c71c218bdd44b703b6a8b6c86876bbb81"
+    },
+    {
+      "group": "clean_test_v0_7b",
+      "filename": "heldout_test_predictions.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_heldout_test_v0_7b\\heldout_test_predictions.csv",
+      "size_bytes": 275148,
+      "sha256": "9e75780befaf5502bd38c3c02a1a1b62a3ec8c972eb8eab6d1be4b552fb040ce"
+    },
+    {
+      "group": "windows_v0_4",
+      "filename": "window_manifest.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_windows_frozen_v0_4\\window_manifest.csv",
+      "size_bytes": 1702078,
+      "sha256": "ee67fa17f169b9ac3d8b48efa49a6e634dc5ca405dca657ea5f82043c05a301d"
+    },
+    {
+      "group": "windows_v0_4",
+      "filename": "normalization_train_only.json",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_windows_frozen_v0_4\\normalization_train_only.json",
+      "size_bytes": 3689,
+      "sha256": "a6a4bf24c805e9e02a635cd363b006aab0830ab925fe70b7c9dbe0b0f5e3e1b8"
+    },
+    {
+      "group": "windows_v0_4",
+      "filename": "window_config.json",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_windows_frozen_v0_4\\window_config.json",
+      "size_bytes": 1147,
+      "sha256": "d6ff1aa93bf5d607b648d1e6c62c6a6a2d2728204161b372e3ea5d56974cb1a1"
+    },
+    {
+      "group": "windows_v0_4",
+      "filename": "window_summary.txt",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_windows_frozen_v0_4\\window_summary.txt",
+      "size_bytes": 1481,
+      "sha256": "1ff202762bb94a6876aedfa5de009b54a9be88e4836b3661f834d3edc813b880"
+    },
+    {
+      "group": "baseline_v0_5",
+      "filename": "baseline_mlp_v0_5.pt",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_baseline_mlp_v0_5\\baseline_mlp_v0_5.pt",
+      "size_bytes": 881357,
+      "sha256": "3e83192de687c42db771964aa82715b6221ad8dc89423484115a9b6aed23a040"
+    },
+    {
+      "group": "baseline_v0_5",
+      "filename": "baseline_config.json",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_baseline_mlp_v0_5\\baseline_config.json",
+      "size_bytes": 1238,
+      "sha256": "d11c031777c4881d3b312d2f8f2c61957b96a32699bf12b6cf53a619e6a5a5c6"
+    },
+    {
+      "group": "baseline_v0_5",
+      "filename": "pretest_metrics.json",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_baseline_mlp_v0_5\\pretest_metrics.json",
+      "size_bytes": 1217,
+      "sha256": "159faae09c73be7fed12be44e6c012b18a2fd1c794334de3010139c033df3b38"
+    },
+    {
+      "group": "baseline_v0_5",
+      "filename": "FROZEN_BASELINE_RECORD.json",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_baseline_mlp_v0_5\\FROZEN_BASELINE_RECORD.json",
+      "size_bytes": 790,
+      "sha256": "9f5252b4aaf798ce2c40f71ad10cfa15fa8b9df824bae43e974f60b0ceb0224c"
+    },
+    {
+      "group": "baseline_v0_5",
+      "filename": "baseline_summary.txt",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_baseline_mlp_v0_5\\baseline_summary.txt",
+      "size_bytes": 1499,
+      "sha256": "6485b307c6edc4729ffb13a1772012ea25697600094fe570d99f4190c34454be"
+    },
+    {
+      "group": "graph_v0_6",
+      "filename": "graph_gcn_gru_v0_6.pt",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_graph_gcn_gru_v0_6\\graph_gcn_gru_v0_6.pt",
+      "size_bytes": 194709,
+      "sha256": "c8d104c5512556dbbcb459eb63ccef8ba8e71cb04fc9b22a5b16c23eee51e0af"
+    },
+    {
+      "group": "graph_v0_6",
+      "filename": "graph_model_config.json",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_graph_gcn_gru_v0_6\\graph_model_config.json",
+      "size_bytes": 1027,
+      "sha256": "73f0b36ab7e4b75afa3593950e1b382c3e8b86ace314095cd18df07c50822651"
+    },
+    {
+      "group": "graph_v0_6",
+      "filename": "pretest_metrics.json",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_graph_gcn_gru_v0_6\\pretest_metrics.json",
+      "size_bytes": 1221,
+      "sha256": "0d97c90c5ef88d6e1e41229983d864e6f3821d93a6602f7a95745e1b87448f97"
+    },
+    {
+      "group": "graph_v0_6",
+      "filename": "graph_input_definition.json",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_graph_gcn_gru_v0_6\\graph_input_definition.json",
+      "size_bytes": 730,
+      "sha256": "7d3db649ecf035fbca8ff744dcbaca6ed3cb85523b3123557fb4eff94ebc4726"
+    },
+    {
+      "group": "graph_v0_6",
+      "filename": "FROZEN_GRAPH_MODEL_RECORD.json",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_graph_gcn_gru_v0_6\\FROZEN_GRAPH_MODEL_RECORD.json",
+      "size_bytes": 881,
+      "sha256": "b4ce73e520979f555c9722484e00e2eccaa3cbfdce317e6f8d7d41fbbaf5b6c9"
+    },
+    {
+      "group": "graph_v0_6",
+      "filename": "graph_summary.txt",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_graph_gcn_gru_v0_6\\graph_summary.txt",
+      "size_bytes": 1616,
+      "sha256": "c5ca3b1571199aaf3a67518feec4189e8e05c23b7a93cb4348bb6b3232aa5a30"
+    },
+    {
+      "group": "generated_metadata_v0_3a",
+      "filename": "generation_index.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_generated_v0_3a\\generation_index.csv",
+      "size_bytes": 76304,
+      "sha256": "bc33af176da705ed87850e6032dc313761e2c839faf04aa03c59bd12deb5848a"
+    },
+    {
+      "group": "generated_metadata_v0_3a",
+      "filename": "tensor_layout.json",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_generated_v0_3a\\tensor_layout.json",
+      "size_bytes": 4231,
+      "sha256": "33220279d7e1ff6c92caacd54785040764168c576d5eb218401515be206a9261"
+    },
+    {
+      "group": "generated_metadata_v0_3a",
+      "filename": "graph_nodes.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_generated_v0_3a\\graph_nodes.csv",
+      "size_bytes": 2285,
+      "sha256": "dfb90c5fa1b7c80935edcca5294ec0b87b22cb3788732f4432d58135c8e6f295"
+    },
+    {
+      "group": "generated_metadata_v0_3a",
+      "filename": "graph_links.csv",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_generated_v0_3a\\graph_links.csv",
+      "size_bytes": 5752,
+      "sha256": "d92ab147d4678c8aff999a86f761f15deeb843a738b3021acc3062b824860c1e"
+    },
+    {
+      "group": "generated_metadata_v0_3a",
+      "filename": "generation_summary.txt",
+      "source_path": "C:\\Users\\naimu\\Downloads\\AQUA_VERA_generated_v0_3a\\generation_summary.txt",
+      "size_bytes": 1368,
+      "sha256": "00462f790360aabdeb24b6f11e40ac10d6dc89611579898b24113c62da9e6b9d"
+    }
+  ]
+}

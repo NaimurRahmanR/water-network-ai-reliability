@@ -1,0 +1,60 @@
+AQUA-VERA RELIABILITY CONTROLLER FREEZE v0.11
+==============================================================================
+STATUS: PASS / CONTROLLER FROZEN PRE-DEGRADED-TEST
+
+BOUNDARY
+  reconstruction training source: TRAIN ONLY
+  controller threshold source: CLEAN CALIBRATION ONLY
+  degraded TEST loaded: NO
+  clean models retrained: NO
+  clean model thresholds changed: NO
+
+THRESHOLD RULE
+  95th percentile of clean calibration signal
+  MLP entropy q95 (attribution subset): 0.971502385
+  MLP attribution-divergence q95: 0.098171499
+  GCN_GRU entropy q95 (attribution subset): 0.962469300
+  GCN_GRU attribution-divergence q95: 0.277052931
+
+ACTION MAPPING
+  low entropy + low attribution divergence -> PROCEED
+  high entropy only -> VERIFY
+  high attribution divergence only -> REQUEST_SENSOR
+  both high -> ESCALATE
+  explicit missing-sensor mask -> RECONSTRUCT, then re-evaluate
+
+RECONSTRUCTION
+  24 pressure-sensor Ridge models
+  alpha: 1.0
+  unique training rows: 86,700
+  simultaneous one-pass for multiple missing sensors
+  GCN missing observation mask remains 0 after reconstruction
+  train R2 min/median/max: 0.789161 / 0.998908 / 0.999949
+
+CALIBRATION MISSING-SENSOR RECOVERY (ATTRIBUTION SUBSET)
+  GCN_GRU high: forced accuracy=0.411667, post-reconstruction proceed=0.395000
+  GCN_GRU low: forced accuracy=0.826667, post-reconstruction proceed=0.805000
+  GCN_GRU medium: forced accuracy=0.556667, post-reconstruction proceed=0.561667
+  MLP high: forced accuracy=0.595000, post-reconstruction proceed=0.798333
+  MLP low: forced accuracy=0.908333, post-reconstruction proceed=0.886667
+  MLP medium: forced accuracy=0.706667, post-reconstruction proceed=0.840000
+
+CALIBRATION CONTROLLER OVERALL (ATTRIBUTION SUBSET)
+  MLP clean: n=600, proceed=0.900000, unsafe_proceed=0.035000, forced_accuracy=0.941667
+  MLP degraded: n=9000, proceed=0.842000, unsafe_proceed=0.160556, forced_accuracy=0.787222
+  GCN_GRU clean: n=600, proceed=0.901667, unsafe_proceed=0.066667, forced_accuracy=0.911667
+  GCN_GRU degraded: n=10800, proceed=0.752778, unsafe_proceed=0.089537, forced_accuracy=0.755741
+
+ARTIFACT HASHES
+  pressure_reconstruction_ridge.json: e7d871b91ad8e90dbb696497738436a88a4169574340c8be15a41d4b4afe5dcb
+  pressure_reconstruction_train_quality.csv: b79a442197c64ac0c059995d29a61d98c6be1b784a26923f4e2323ccd557327a
+  calibration_missing_reconstruction_outcomes.csv: c856826e64d85c8ccef39695c384157a6b023e16493d66f9d881399a29ef3800
+  calibration_controller_outcomes.csv: 62425e3e189bf8a1a31d78f6e7e5cd87da2bc4c001c608033ddd3f3cc371b2c8
+  calibration_controller_metrics.csv: a9fffd93a1c27c14cc330dd9b984bcddbd051e4ec991872b462fa8db0860d2df
+  calibration_controller_overall.csv: 9da752205c0b9e2640cf559faef7c03984317fb5824c71d2d3079f252da15f06
+  FROZEN_CONTROLLER_THRESHOLDS.json: 6b47c2b842a43166558cce1741ad99f069e41fe226b98342fc672ad7c14b5c81
+
+NEXT
+  Send controller_freeze_summary.txt to the research record.
+  If PASS, reliability rules are frozen and degraded held-out test
+  may be generated/evaluated exactly once.

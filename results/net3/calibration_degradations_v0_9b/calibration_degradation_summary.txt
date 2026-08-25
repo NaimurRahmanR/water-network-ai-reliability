@@ -1,0 +1,39 @@
+AQUA-VERA CALIBRATION DEGRADATIONS v0.9b
+==============================================================================
+STATUS: PASS / CALIBRATION DEGRADATIONS FROZEN
+Protocol SHA-256: 0203ffcb0a456cbdb09c1186a9d669f0266cc85b200e13dbfcd53a62dd746b2c
+
+BOUNDARY
+  split loaded: CALIBRATION ONLY
+  contexts: 30
+  windows per condition: 2,700
+  degraded TEST loaded: NO
+  model retraining: NO
+  threshold changes: NO
+
+PREDICTION ROWS
+  total: 94,500
+  MLP: 43,200
+  GCN-GRU: 51,300
+
+TOPOLOGY MISMATCH
+  GCN only: YES
+  connectivity-preserving removals: YES
+  topology-derived degree feature updated consistently: YES
+
+ENTROPY DETECTION RANGE (descriptive calibration)
+  minimum AUROC: 0.215440
+  median AUROC: 0.489055
+  maximum AUROC: 0.566926
+
+ARTIFACT HASHES
+  calibration_degradation_predictions.csv: 36edd2accc9c990d5806a48079348f18319554bc86fa08717597f29df3a2429e
+  calibration_corruption_manifest.csv: df467191e0acc4b257ad6ae8002468d10943352e5b741e9f1d8d34519d0117a8
+  calibration_condition_metrics.csv: 085a4e1d3f3f3c85f29ad2b5ac153396b55f019a4c18eeb922a4a774b67931f8
+  calibration_entropy_detection.csv: 855317985d3578fc8daf3173d16d9418020a80bdb0c0ebb8c7d5bb0640d38ffe
+  calibration_degradation_execution.json: 8a4dcbe09472d2c8cf51d326a80c8c2b2f1d1b43947320484066d6d124167b00
+
+NEXT
+  Send calibration_degradation_summary.txt to the research record.
+  Next pass: Input x Gradient attribution on the pre-specified calibration subset.
+  Do not generate degraded test yet.

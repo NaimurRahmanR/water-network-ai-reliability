@@ -1,0 +1,46 @@
+AQUA-VERA BATTLEDIM FINAL-EVALUATION IMPLEMENTATION FREEZE v0.16c
+==============================================================================
+STATUS: PASS / FINAL 2019 EVALUATION IMPLEMENTATION FROZEN
+
+BOUNDARY
+  2019 checked/opened/hashed: NO
+  frozen models changed: NO
+  frozen reliability thresholds changed: NO
+  frozen reconstruction changed: NO
+
+DETERMINISTIC PRESSURE SENSOR SELECTION
+  MISSING_SENSOR low: n722,n516,n429
+  MISSING_SENSOR medium: n722,n516,n429,n726,n613,n31,n519,n495
+  MISSING_SENSOR high: n722,n516,n429,n726,n613,n31,n519,n495,n105,n410,n549,n679,n4
+  SENSOR_NOISE low: n229,n769,n722,n458,n1,n54,n4,n679
+  SENSOR_NOISE medium: n229,n769,n722,n458,n1,n54,n4,n679
+  SENSOR_NOISE high: n229,n769,n722,n458,n1,n54,n4,n679
+  SENSOR_BIAS low: n188,n495,n752,n332,n549,n644,n679,n469
+  SENSOR_BIAS medium: n188,n495,n752,n332,n549,n644,n679,n469
+  SENSOR_BIAS high: n188,n495,n752,n332,n549,n644,n679,n469
+  STALE_SENSOR low: n31,n54,n415,n1,n458,n288,n114,n726
+  STALE_SENSOR medium: n31,n54,n415,n1,n458,n288,n114,n726
+  STALE_SENSOR high: n31,n54,n415,n1,n458,n288,n114,n726
+
+TOPOLOGY MISMATCH EDGE SELECTION
+  low: p898
+  medium: p898,p205,p103
+  high: p898,p205,p103,p648,p605
+
+NOISE RNG SEEDS
+  low: 2667799303947657987
+  medium: 8680384905475719567
+  high: 7898876182732813030
+
+REPORTING DEFINITIONS
+  raw always-act error: raw degraded prediction error before recovery
+  recovery-prescribed forced error: after missing reconstruction only
+  unsafe proceed: final PROCEED and final prediction incorrect
+  attribution subset: candidate window_index mod 10 == 0 AND eligible
+  inference: descriptive; no post-2019 CI/threshold tuning
+
+FROZEN IMPLEMENTATION SHA-256: b4099d9dee3a118c8b51588d8d7495f290444a9ade57aa96a2320002789c15ef
+
+NEXT
+  Send BattLeDIM_final_eval_freeze_summary_v0_16c.txt to the research record.
+  If PASS, 2019 may be opened exactly once for final external evaluation.

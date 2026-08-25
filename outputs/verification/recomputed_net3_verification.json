@@ -1,0 +1,512 @@
+{
+  "all_collected_manifest_hashes_match": true,
+  "collected_files": 59,
+  "optional_missing": [
+    "C:\\Users\\naimu\\Downloads\\AQUA_VERA_heldout_test_v0_7b\\heldout_test_metrics.json",
+    "C:\\Users\\naimu\\Downloads\\AQUA_VERA_heldout_test_v0_7b\\HELDOUT_TEST_RECORD.json",
+    "C:\\Users\\naimu\\Downloads\\AQUA_VERA_heldout_test_v0_7b\\heldout_test_summary_v0_7b.txt"
+  ],
+  "split_counts": [
+    {
+      "split": "calibration",
+      "windows": 2700,
+      "contexts": 30,
+      "positives": 572
+    },
+    {
+      "split": "test",
+      "windows": 2700,
+      "contexts": 30,
+      "positives": 520
+    },
+    {
+      "split": "train",
+      "windows": 13500,
+      "contexts": 150,
+      "positives": 2636
+    },
+    {
+      "split": "validation",
+      "windows": 2700,
+      "contexts": 30,
+      "positives": 580
+    }
+  ],
+  "split_context_overlap": {
+    "calibration-test": 0,
+    "calibration-train": 0,
+    "calibration-validation": 0,
+    "test-train": 0,
+    "test-validation": 0,
+    "train-validation": 0
+  },
+  "context_unique_split_max": 1,
+  "pair_n_values": {
+    "2": 10800
+  },
+  "pair_variant_values": {
+    "2": 10800
+  },
+  "clean_metrics": {
+    "MLP": {
+      "n": 2700,
+      "accuracy": 0.937037037037037,
+      "balanced_accuracy": 0.8973094565984474,
+      "f1": 0.8359073359073359,
+      "auprc": 0.9037343206453345,
+      "auroc": 0.9443242766407904,
+      "brier": 0.05714717441906054,
+      "tn": 2097,
+      "fp": 83,
+      "fn": 87,
+      "tp": 433
+    },
+    "GCN_GRU": {
+      "n": 2700,
+      "accuracy": 0.9007407407407407,
+      "balanced_accuracy": 0.8301693719124912,
+      "f1": 0.7351778656126482,
+      "auprc": 0.8260049824620298,
+      "auroc": 0.8988408609738886,
+      "brier": 0.0789138624845262,
+      "tn": 2060,
+      "fp": 120,
+      "fn": 148,
+      "tp": 372
+    }
+  },
+  "clean_final_rows": 5400,
+  "clean_MLP_prob_maxdiff": 6.617444900424222e-24,
+  "clean_MLP_pred_match": true,
+  "clean_GCN_GRU_prob_maxdiff": 0.0,
+  "clean_GCN_GRU_pred_match": true,
+  "prediction_rows": 94500,
+  "prediction_condition_count": 35,
+  "prediction_n_values": {
+    "2700": 35
+  },
+  "prediction_context_values": {
+    "30": 35
+  },
+  "model_prediction_rows": {
+    "GCN_GRU": 51300,
+    "MLP": 43200
+  },
+  "prediction_max_duplicate_per_condition_window": 1,
+  "condition_metrics_max_abs_diff": 3.5079648278313336e-05,
+  "entropy_column_max_abs_diff": 4.4178326865758946e-15,
+  "prediction_threshold_mismatches": 0,
+  "correct_flag_mismatches": 0,
+  "entropy_detection_max_abs_diff": 1.303155006793233e-06,
+  "entropy_auroc_min_median_max": [
+    0.1601373113854595,
+    0.4949970507544581,
+    0.5773550068587106
+  ],
+  "attribution_rows": 21000,
+  "attribution_condition_count": 35,
+  "attribution_n_values": {
+    "600": 35
+  },
+  "attribution_context_values": {
+    "30": 35
+  },
+  "model_attr_rows": {
+    "GCN_GRU": 11400,
+    "MLP": 9600
+  },
+  "profile_row_unique": 21000,
+  "profile_row_minmax": [
+    0,
+    20999
+  ],
+  "profiles_shape": [
+    21000,
+    33
+  ],
+  "profiles_nonfinite": 0,
+  "profiles_sum_max_abs_err": 2.980232238769531e-07,
+  "attribution_jsd_max_abs_diff": 1.1102230246251565e-16,
+  "attribution_detection_max_abs_diff": 2.7777777778514867e-06,
+  "attr_auroc_min_median_max": [
+    0.4793861111111111,
+    0.5484888888888889,
+    0.9786777777777778
+  ],
+  "attr_beats_entropy_count": 27,
+  "attr_bottom5": [
+    {
+      "model": "MLP",
+      "family": "SENSOR_NOISE",
+      "severity": "medium",
+      "attribution_divergence_auroc": 0.4793861111111111,
+      "entropy_auroc_same_subset": 0.5094208333333333
+    },
+    {
+      "model": "MLP",
+      "family": "SENSOR_NOISE",
+      "severity": "low",
+      "attribution_divergence_auroc": 0.4846861111111111,
+      "entropy_auroc_same_subset": 0.4993319444444444
+    },
+    {
+      "model": "GCN_GRU",
+      "family": "SENSOR_NOISE",
+      "severity": "low",
+      "attribution_divergence_auroc": 0.4873472222222222,
+      "entropy_auroc_same_subset": 0.523925
+    },
+    {
+      "model": "MLP",
+      "family": "STALE_SENSOR",
+      "severity": "low",
+      "attribution_divergence_auroc": 0.4973527777777778,
+      "entropy_auroc_same_subset": 0.4985402777777777
+    },
+    {
+      "model": "GCN_GRU",
+      "family": "STALE_SENSOR",
+      "severity": "low",
+      "attribution_divergence_auroc": 0.5029555555555555,
+      "entropy_auroc_same_subset": 0.5052833333333333
+    }
+  ],
+  "attr_top5": [
+    {
+      "model": "MLP",
+      "family": "MISSING_SENSOR",
+      "severity": "high",
+      "attribution_divergence_auroc": 0.9786777777777778,
+      "entropy_auroc_same_subset": 0.3789916666666666
+    },
+    {
+      "model": "GCN_GRU",
+      "family": "SENSOR_BIAS",
+      "severity": "high",
+      "attribution_divergence_auroc": 0.9512555555555556,
+      "entropy_auroc_same_subset": 0.1680416666666666
+    },
+    {
+      "model": "MLP",
+      "family": "MISSING_SENSOR",
+      "severity": "medium",
+      "attribution_divergence_auroc": 0.9282666666666666,
+      "entropy_auroc_same_subset": 0.4179583333333333
+    },
+    {
+      "model": "GCN_GRU",
+      "family": "MISSING_SENSOR",
+      "severity": "high",
+      "attribution_divergence_auroc": 0.8387444444444445,
+      "entropy_auroc_same_subset": 0.5108916666666666
+    },
+    {
+      "model": "GCN_GRU",
+      "family": "SENSOR_BIAS",
+      "severity": "medium",
+      "attribution_divergence_auroc": 0.8269972222222224,
+      "entropy_auroc_same_subset": 0.482075
+    }
+  ],
+  "threshold_recomputed": {
+    "MLP": {
+      "entropy_full_q95": 0.96228665714933,
+      "entropy_attr_subset_q95": 0.9715023847878589,
+      "attribution_divergence_q95": 0.09817149902605746
+    },
+    "GCN_GRU": {
+      "entropy_full_q95": 0.9684203369272691,
+      "entropy_attr_subset_q95": 0.9624693004500001,
+      "attribution_divergence_q95": 0.27705293114848445
+    }
+  },
+  "threshold_max_abs_diff": 0.0,
+  "reconstruction_metrics_max_abs_diff": 1.1102230246251565e-16,
+  "recon_prediction_mismatches": 0,
+  "recon_correct_mismatches": 0,
+  "controller_nonmissing_initial_action_mismatch": 0,
+  "controller_nonmissing_final_action_mismatch": 0,
+  "controller_missing_initial_not_reconstruct": 0,
+  "controller_missing_merge_rows": 3600,
+  "controller_missing_final_action_mismatch_recovery_file": 0,
+  "controller_missing_final_prediction_mismatch": 0,
+  "controller_missing_final_correct_mismatch": 0,
+  "controller_proceed_flag_mismatches": 0,
+  "controller_unsafe_flag_mismatches": 0,
+  "controller_condition_metrics_max_abs_diff": 1.1102230246251565e-16,
+  "controller_overall_max_abs_diff": 1.1102230246251565e-16,
+  "controller_baseline_semantics": [
+    {
+      "model": "MLP",
+      "raw_degraded_prediction_error_before_recovery": 0.24711111111111106,
+      "controller_table_always_act_error_after_prescribed_missing_recovery": 0.2179999999999999,
+      "unsafe_proceed": 0.1701111111111111,
+      "unsafe_reduction_vs_raw_no_recovery": 0.07699999999999996,
+      "stored_reduction_vs_postrecovery_forced": 0.0478888888888888
+    },
+    {
+      "model": "GCN_GRU",
+      "raw_degraded_prediction_error_before_recovery": 0.20157407407407413,
+      "controller_table_always_act_error_after_prescribed_missing_recovery": 0.2258333333333333,
+      "unsafe_proceed": 0.0797222222222222,
+      "unsafe_reduction_vs_raw_no_recovery": 0.12185185185185193,
+      "stored_reduction_vs_postrecovery_forced": 0.1461111111111111
+    }
+  ],
+  "corruption_manifest_rows": 540,
+  "corruption_contexts": 30,
+  "corruption_condition_count": 18,
+  "corruption_selection_counts": [
+    {
+      "family": "CROSS_SOURCE_CONFLICT",
+      "severity": "high",
+      "rows": 30,
+      "pressure_count_min": 10,
+      "pressure_count_max": 10,
+      "edge_count_min": 0,
+      "edge_count_max": 0
+    },
+    {
+      "family": "CROSS_SOURCE_CONFLICT",
+      "severity": "low",
+      "rows": 30,
+      "pressure_count_min": 2,
+      "pressure_count_max": 2,
+      "edge_count_min": 0,
+      "edge_count_max": 0
+    },
+    {
+      "family": "CROSS_SOURCE_CONFLICT",
+      "severity": "medium",
+      "rows": 30,
+      "pressure_count_min": 6,
+      "pressure_count_max": 6,
+      "edge_count_min": 0,
+      "edge_count_max": 0
+    },
+    {
+      "family": "MISSING_SENSOR",
+      "severity": "high",
+      "rows": 30,
+      "pressure_count_min": 10,
+      "pressure_count_max": 10,
+      "edge_count_min": 0,
+      "edge_count_max": 0
+    },
+    {
+      "family": "MISSING_SENSOR",
+      "severity": "low",
+      "rows": 30,
+      "pressure_count_min": 2,
+      "pressure_count_max": 2,
+      "edge_count_min": 0,
+      "edge_count_max": 0
+    },
+    {
+      "family": "MISSING_SENSOR",
+      "severity": "medium",
+      "rows": 30,
+      "pressure_count_min": 6,
+      "pressure_count_max": 6,
+      "edge_count_min": 0,
+      "edge_count_max": 0
+    },
+    {
+      "family": "SENSOR_BIAS",
+      "severity": "high",
+      "rows": 30,
+      "pressure_count_min": 6,
+      "pressure_count_max": 6,
+      "edge_count_min": 0,
+      "edge_count_max": 0
+    },
+    {
+      "family": "SENSOR_BIAS",
+      "severity": "low",
+      "rows": 30,
+      "pressure_count_min": 6,
+      "pressure_count_max": 6,
+      "edge_count_min": 0,
+      "edge_count_max": 0
+    },
+    {
+      "family": "SENSOR_BIAS",
+      "severity": "medium",
+      "rows": 30,
+      "pressure_count_min": 6,
+      "pressure_count_max": 6,
+      "edge_count_min": 0,
+      "edge_count_max": 0
+    },
+    {
+      "family": "SENSOR_NOISE",
+      "severity": "high",
+      "rows": 30,
+      "pressure_count_min": 6,
+      "pressure_count_max": 6,
+      "edge_count_min": 0,
+      "edge_count_max": 0
+    },
+    {
+      "family": "SENSOR_NOISE",
+      "severity": "low",
+      "rows": 30,
+      "pressure_count_min": 6,
+      "pressure_count_max": 6,
+      "edge_count_min": 0,
+      "edge_count_max": 0
+    },
+    {
+      "family": "SENSOR_NOISE",
+      "severity": "medium",
+      "rows": 30,
+      "pressure_count_min": 6,
+      "pressure_count_max": 6,
+      "edge_count_min": 0,
+      "edge_count_max": 0
+    },
+    {
+      "family": "STALE_SENSOR",
+      "severity": "high",
+      "rows": 30,
+      "pressure_count_min": 6,
+      "pressure_count_max": 6,
+      "edge_count_min": 0,
+      "edge_count_max": 0
+    },
+    {
+      "family": "STALE_SENSOR",
+      "severity": "low",
+      "rows": 30,
+      "pressure_count_min": 6,
+      "pressure_count_max": 6,
+      "edge_count_min": 0,
+      "edge_count_max": 0
+    },
+    {
+      "family": "STALE_SENSOR",
+      "severity": "medium",
+      "rows": 30,
+      "pressure_count_min": 6,
+      "pressure_count_max": 6,
+      "edge_count_min": 0,
+      "edge_count_max": 0
+    },
+    {
+      "family": "TOPOLOGY_MISMATCH",
+      "severity": "high",
+      "rows": 30,
+      "pressure_count_min": 0,
+      "pressure_count_max": 0,
+      "edge_count_min": 5,
+      "edge_count_max": 5
+    },
+    {
+      "family": "TOPOLOGY_MISMATCH",
+      "severity": "low",
+      "rows": 30,
+      "pressure_count_min": 0,
+      "pressure_count_max": 0,
+      "edge_count_min": 1,
+      "edge_count_max": 1
+    },
+    {
+      "family": "TOPOLOGY_MISMATCH",
+      "severity": "medium",
+      "rows": 30,
+      "pressure_count_min": 0,
+      "pressure_count_max": 0,
+      "edge_count_min": 3,
+      "edge_count_max": 3
+    }
+  ],
+  "corruption_max_duplicate": 1,
+  "rng_nonnull_by_family": {
+    "CROSS_SOURCE_CONFLICT": 0,
+    "MISSING_SENSOR": 0,
+    "SENSOR_BIAS": 90,
+    "SENSOR_NOISE": 90,
+    "STALE_SENSOR": 0,
+    "TOPOLOGY_MISMATCH": 0
+  },
+  "test_windows": 2700,
+  "test_contexts": 30,
+  "test_positive": 520,
+  "test_negative": 2180,
+  "pred_manifest_join_rows": 94500,
+  "pred_manifest_metadata_mismatches": 0,
+  "most_harmful_accuracy_conditions": [
+    {
+      "model": "GCN_GRU",
+      "family": "SENSOR_BIAS",
+      "severity": "high",
+      "accuracy": 0.2918518518518518,
+      "accuracy_delta_vs_clean": -0.608888888888889
+    },
+    {
+      "model": "MLP",
+      "family": "MISSING_SENSOR",
+      "severity": "high",
+      "accuracy": 0.4540740740740741,
+      "accuracy_delta_vs_clean": -0.4829629629629629
+    },
+    {
+      "model": "MLP",
+      "family": "SENSOR_BIAS",
+      "severity": "high",
+      "accuracy": 0.5077777777777778,
+      "accuracy_delta_vs_clean": -0.42925925925925923
+    },
+    {
+      "model": "MLP",
+      "family": "MISSING_SENSOR",
+      "severity": "medium",
+      "accuracy": 0.5614814814814815,
+      "accuracy_delta_vs_clean": -0.37555555555555553
+    },
+    {
+      "model": "GCN_GRU",
+      "family": "SENSOR_NOISE",
+      "severity": "high",
+      "accuracy": 0.5288888888888889,
+      "accuracy_delta_vs_clean": -0.371851851851852
+    },
+    {
+      "model": "MLP",
+      "family": "SENSOR_BIAS",
+      "severity": "medium",
+      "accuracy": 0.5885185185185186,
+      "accuracy_delta_vs_clean": -0.34851851851851845
+    }
+  ],
+  "improved_accuracy_conditions": [
+    {
+      "model": "GCN_GRU",
+      "family": "TOPOLOGY_MISMATCH",
+      "severity": "medium",
+      "accuracy": 0.9077777777777778,
+      "accuracy_delta_vs_clean": 0.007037037037036953
+    },
+    {
+      "model": "GCN_GRU",
+      "family": "TOPOLOGY_MISMATCH",
+      "severity": "high",
+      "accuracy": 0.905925925925926,
+      "accuracy_delta_vs_clean": 0.005185185185185182
+    },
+    {
+      "model": "GCN_GRU",
+      "family": "SENSOR_NOISE",
+      "severity": "low",
+      "accuracy": 0.9025925925925926,
+      "accuracy_delta_vs_clean": 0.0018518518518517713
+    },
+    {
+      "model": "GCN_GRU",
+      "family": "TOPOLOGY_MISMATCH",
+      "severity": "low",
+      "accuracy": 0.9014814814814814,
+      "accuracy_delta_vs_clean": 0.0007407407407405975
+    }
+  ]
+}

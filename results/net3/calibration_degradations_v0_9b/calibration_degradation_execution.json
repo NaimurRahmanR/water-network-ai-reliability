@@ -1,0 +1,14 @@
+{
+  "status": "CALIBRATION_DEGRADATIONS_COMPLETE",
+  "protocol_sha256": "0203ffcb0a456cbdb09c1186a9d669f0266cc85b200e13dbfcd53a62dd746b2c",
+  "root_seed": 8675309,
+  "split_loaded": "calibration only",
+  "calibration_contexts": 30,
+  "calibration_windows": 2700,
+  "models_retrained": false,
+  "thresholds_changed": false,
+  "topology_mismatch_static_degree_rule": "degree feature recomputed from the same model-visible mismatched graph",
+  "topology_mismatch_mlp": "not applicable; no MLP rows generated for this family",
+  "numeric_corruptions": "applied once to full 289-step context stream, then frozen 2h windows sliced",
+  "next": "Input x Gradient attribution pass on frozen deterministic subset"
+}
