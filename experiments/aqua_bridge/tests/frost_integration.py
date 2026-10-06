@@ -49,7 +49,8 @@ def main():
     got = threading.Event()
 
     def on_connect(client, userdata, flags, reason_code, properties=None):
-        assert int(reason_code) == 0
+        if getattr(reason_code, "is_failure", False):
+            raise RuntimeError(f"MQTT connection failed: {reason_code}")
         client.subscribe(f"v1.1/Datastreams({ds_id})/Observations", qos=1)
         ready.set()
 
