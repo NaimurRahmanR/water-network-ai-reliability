@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install client dependencies
-        run: pip install requests paho-mqtt
+        run: pip install numpy requests paho-mqtt
       - name: Start FROST SensorThings stack
         run: docker compose -f experiments/aqua_bridge/docker-compose.frost.yml up -d
       - name: Run SensorThings REST + MQTT integration test
