@@ -407,6 +407,8 @@ def run(layout: SensorLayout, train_df: pd.DataFrame, calib_df: pd.DataFrame, te
         )
         for target in layout.pressure_indices:
             for condition in CONDITIONS:
+                if condition == "STALE_SENSOR" and previous is None:
+                    continue
                 if condition == "CLEAN":
                     sev_list = ("clean",)
                 elif condition == "SENSOR_BIAS":
