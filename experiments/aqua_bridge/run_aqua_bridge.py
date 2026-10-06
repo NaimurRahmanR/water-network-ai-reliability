@@ -85,13 +85,24 @@ def _context_paths(generated_dir: Path) -> List[Path]:
     return paths
 
 
-def _split_context_ids(paths: List[Path]) -> Tuple[List[Path], List[Path], List[Path]]:
-    # Existing v0.3a generated context IDs are deterministic. We keep split selection
-    # independent of downstream outcomes and use 60/20/20 by context for this extension.
-    n = len(paths)
-    a = max(1, int(round(n * 0.60)))
-    b = max(a + 1, int(round(n * 0.80)))
-    return paths[:a], paths[a:b], paths[b:]
+def _split_context_ids(generated_dir: Path, paths: List[Path]) -> Tuple[List[Path], List[Path], List[Path]]:
+    # Reuse the parent experiment's frozen context assignments rather than creating
+    # a new split. New reconstructors fit on TRAIN, thresholds use CALIBRATION,
+    # and final architecture metrics use TEST. VALIDATION remains untouched here.
+    index_path = generated_dir / "generation_index.csv"
+    if not index_path.exists():
+        raise FileNotFoundError(f"Missing frozen split index: {index_path}")
+    index = pd.read_csv(index_path, usecols=["context_id", "split"])
+    split_map = dict(zip(index["context_id"].astype(str), index["split"].astype(str).str.lower()))
+    buckets = {"train": [], "calibration": [], "test": []}
+    for path in paths:
+        split = split_map.get(path.stem)
+        if split in buckets:
+            buckets[split].append(path)
+    if any(not buckets[k] for k in buckets):
+        counts = {k: len(v) for k, v in buckets.items()}
+        raise ValueError(f"Frozen split recovery failed: {counts}")
+    return buckets["train"], buckets["calibration"], buckets["test"]
 
 
 def _rows_from_contexts(paths: Iterable[Path], max_rows_per_variant: int = 96) -> pd.DataFrame:
@@ -486,7 +497,7 @@ def main():
             ap.error("--generated-dir is required unless --smoke is used")
         layout = _load_layout(args.generated_dir)
         paths = _context_paths(args.generated_dir)
-        tr, ca, te = _split_context_ids(paths)
+        tr, ca, te = _split_context_ids(args.generated_dir, paths)
         train = _rows_from_contexts(tr, args.max_rows_per_variant)
         calib = _rows_from_contexts(ca, args.max_rows_per_variant)
         test = _rows_from_contexts(te, args.max_rows_per_variant)
