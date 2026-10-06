@@ -1,0 +1,81 @@
+{
+  "status": "PASS",
+  "evidence_type": "AQUA-BRIDGE v0.2 untouched-VALIDATION Incident Hub confirmation",
+  "workflow_run_id": 37487539408,
+  "workflow_url": "https://github.com/NaimurRahmanR/water-network-ai-reliability/actions/runs/37487539408",
+  "tested_head_sha": "b94cca7157cd311e6e43fd16da533a222dc0327c",
+  "artifact_id": 11423659382,
+  "artifact_digest": "sha256:6884d66f8b5410b9f2f6f83b957563ac1cce0577a63dcebcf176a5a25b161209",
+  "split": "VALIDATION",
+  "train_rows": 3600,
+  "calibration_rows": 720,
+  "validation_rows": 720,
+  "profile_count": 2,
+  "clustering": {
+    "silhouette": 0.7011412105167693,
+    "bootstrap_reps": 25,
+    "adjusted_rand_index_mean": 0.9468661182481015,
+    "adjusted_rand_index_median": 0.9742618971986974,
+    "adjusted_rand_index_p05": 0.8413525084577087,
+    "adjusted_rand_index_min": 0.5503148736457935,
+    "adjusted_rand_index_max": 0.9971858925763649
+  },
+  "profiles": [
+    {
+      "cluster": 0,
+      "n": 4799,
+      "dominant_condition": "SENSOR_BIAS",
+      "dominant_action": "VERIFIED_RECONSTRUCT",
+      "proceed_rate": 0.9562408835173994,
+      "escalation_rate": 0.043759116482600544,
+      "unsafe_rate": 0,
+      "median_edge_central_disagreement": 0.0742205363042529,
+      "median_abs_error": 0.0313994208494889,
+      "packet_loss_rate": 0.14523859137320275,
+      "lesson_category": "FRESH_EVIDENCE_AFTER_COMMUNICATION_LOSS"
+    },
+    {
+      "cluster": 1,
+      "n": 201,
+      "dominant_condition": "SENSOR_BIAS",
+      "dominant_action": "VERIFIED_RECONSTRUCT",
+      "proceed_rate": 0.9751243781094527,
+      "escalation_rate": 0.024875621890547265,
+      "unsafe_rate": 0,
+      "median_edge_central_disagreement": 2.000077610640972,
+      "median_abs_error": 1.5682645529113142,
+      "packet_loss_rate": 0.0845771144278607,
+      "lesson_category": "PROVENANCE_AND_VERIFICATION"
+    }
+  ],
+  "architecture_means": {
+    "central_only": {
+      "coverage": 1,
+      "unsafe_proceed_rate_all": 0.0005852798821548821,
+      "mae_when_proceeding": 0.08331889183320507
+    },
+    "edge_only": {
+      "coverage": 1,
+      "unsafe_proceed_rate_all": 0.001294849537037037,
+      "mae_when_proceeding": 0.3100468534626817
+    },
+    "hybrid_naive": {
+      "coverage": 1,
+      "unsafe_proceed_rate_all": 0.001294849537037037,
+      "mae_when_proceeding": 0.3100468534626817
+    },
+    "hybrid_reliability_aware": {
+      "coverage": 0.9607908512205388,
+      "escalation_rate": 0.03920914877946128,
+      "unsafe_proceed_rate_all": 0,
+      "mae_when_proceeding": 0.14105563130807847
+    }
+  },
+  "claim_boundary": [
+    "v0.1 TEST architecture results were not retuned.",
+    "v0.2 used previously unused VALIDATION contexts for confirmation.",
+    "Lessons are benchmark-scoped descriptive summaries, not operator-approved utility rules.",
+    "Cluster stability is within-benchmark evidence, not cross-utility validity.",
+    "No general causal claim is made outside controlled benchmark interventions."
+  ]
+}

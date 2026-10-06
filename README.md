@@ -35,6 +35,14 @@ flowchart LR
 
 The controlled Net3 benchmark includes missing pressure sensors, sensor noise, persistent bias, stale readings, topology mismatch, and matched cross-source conflict. Model, corruption, attribution, reconstruction, threshold, and controller rules were frozen before the final degraded held-out evaluation.
 
+## AQUA-BRIDGE extension
+
+AQUA-BRIDGE extends the frozen Net3 work into a reliability-aware edge-central WDS prototype with an experimental Incident Hub. It compares central-only, edge-only, naive-hybrid and reliability-aware hybrid reconstruction under missing, stale, biased, communication-loss and cross-source-conflict conditions. The extension also includes executed containerised OGC SensorThings/FROST + MQTT integration, structured incident records, descriptive incident profiling, bootstrap cluster-stability analysis and benchmark-scoped lessons.
+
+On the frozen TEST comparison, the reliability-aware hybrid achieved mean autonomous coverage of **0.9669** with a benchmark-defined unsafe-proceed rate of **0.000234**, compared with **0.001171** for central-only and **0.002685** for edge-only/naive hybrid. A separate v0.2 confirmation on previously unused VALIDATION contexts reproduced the coverage-risk trade-off: mean coverage **0.9608**, mean escalation **0.0392**, and **zero observed benchmark-defined unsafe proceeds** in that confirmation. This is not a zero-operational-risk claim.
+
+See [`experiments/aqua_bridge/README.md`](experiments/aqua_bridge/README.md) for the implementation, [`experiments/aqua_bridge/RESULTS.md`](experiments/aqua_bridge/RESULTS.md) for executed results, and the frozen v0.1/v0.2 protocols under [`experiments/aqua_bridge/`](experiments/aqua_bridge/).
+
 ## Controlled Net3 result
 
 The held-out Net3 test contains 30 physical contexts and 2,700 windows. Test leak locations were unseen during training.

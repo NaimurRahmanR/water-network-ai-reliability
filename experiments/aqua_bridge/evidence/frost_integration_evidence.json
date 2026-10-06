@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "evidence_type": "containerised SensorThings REST + MQTT integration",
+  "workflow_run_id": 37485671791,
+  "workflow_url": "https://github.com/NaimurRahmanR/water-network-ai-reliability/actions/runs/37485671791",
+  "tested_head_sha": "b405277929897fd9c01483fd1372c13dfc18aeb0",
+  "artifact_id": 11423072291,
+  "artifact_digest": "sha256:38c91eb218a545610707c5b03a1b3a3b30e86dae1b4d784be745ca083f580c98",
+  "result": {
+    "sensorthings_http": true,
+    "mqtt_notification": true,
+    "datastream_id": 1,
+    "mqtt_topic": "v1.1/Datastreams(1)/Observations",
+    "observation_result": 42.125
+  },
+  "claim_boundary": "Containerised FROST integration test; not physical edge hardware or utility deployment."
+}

@@ -1,0 +1,43 @@
+name: AQUA-BRIDGE FROST integration
+
+on:
+  push:
+    branches: [aqua-bridge-application-experiment]
+    paths:
+      - 'experiments/aqua_bridge/docker-compose.frost.yml'
+      - 'experiments/aqua_bridge/sensorthings_bridge.py'
+      - 'experiments/aqua_bridge/tests/frost_integration.py'
+      - '.github/workflows/aqua-bridge-frost.yml'
+  workflow_dispatch:
+
+jobs:
+  frost:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install client dependencies
+        run: pip install numpy requests paho-mqtt
+      - name: Start FROST SensorThings stack
+        run: docker compose -f experiments/aqua_bridge/docker-compose.frost.yml up -d
+      - name: Run SensorThings REST + MQTT integration test
+        run: |
+          PYTHONPATH=experiments/aqua_bridge           python experiments/aqua_bridge/tests/frost_integration.py
+      - name: Show containers on failure
+        if: failure()
+        run: |
+          docker compose -f experiments/aqua_bridge/docker-compose.frost.yml ps
+          docker compose -f experiments/aqua_bridge/docker-compose.frost.yml logs --no-color --tail=300
+      - name: Upload integration evidence
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aqua-bridge-frost-integration
+          path: outputs/aqua_bridge_frost/integration_result.json
+          retention-days: 30
+      - name: Stop FROST stack
+        if: always()
+        run: docker compose -f experiments/aqua_bridge/docker-compose.frost.yml down -v

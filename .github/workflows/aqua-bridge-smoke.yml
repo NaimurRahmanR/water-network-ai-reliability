@@ -1,0 +1,40 @@
+name: AQUA-BRIDGE smoke
+
+on:
+  push:
+    branches: [aqua-bridge-application-experiment]
+    paths:
+      - 'experiments/aqua_bridge/**'
+      - '.github/workflows/aqua-bridge-smoke.yml'
+  pull_request:
+    paths:
+      - 'experiments/aqua_bridge/**'
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install experiment dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r experiments/aqua_bridge/requirements.txt pytest
+      - name: Compile experiment scripts
+        run: |
+          python -m py_compile experiments/aqua_bridge/run_aqua_bridge.py
+          python -m py_compile experiments/aqua_bridge/run_lessons_v0_2.py
+          python -m py_compile experiments/aqua_bridge/sensorthings_bridge.py
+          python -m py_compile experiments/aqua_bridge/mqtt_edge_consumer.py
+      - name: Run smoke tests
+        run: pytest -q experiments/aqua_bridge/tests/test_smoke.py experiments/aqua_bridge/tests/test_lessons_v0_2.py
+      - name: Run smoke experiment
+        run: python experiments/aqua_bridge/run_aqua_bridge.py --smoke --out outputs/aqua_bridge_smoke
+      - name: Check expected outputs
+        run: |
+          test -s outputs/aqua_bridge_smoke/architecture_metrics.csv
+          test -s outputs/aqua_bridge_smoke/incident_hub.sqlite
+          test -s outputs/aqua_bridge_smoke/run_manifest.json

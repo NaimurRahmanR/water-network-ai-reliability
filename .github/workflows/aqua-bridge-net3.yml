@@ -1,0 +1,120 @@
+name: AQUA-BRIDGE Net3 full experiment
+
+on:
+  push:
+    branches: [aqua-bridge-application-experiment]
+    paths:
+      - '.github/workflows/aqua-bridge-net3.yml'
+  workflow_dispatch:
+
+jobs:
+  net3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install recorded scientific environment
+        run: |
+          python -m pip install --upgrade pip
+          pip install numpy==2.5.0 pandas==3.0.3 wntr==1.5.0 scikit-learn networkx
+
+      - name: Fetch exact WNTR 1.5.0 Net3 input
+        run: |
+          mkdir -p _aqua_bridge/source
+          curl -L --fail             https://raw.githubusercontent.com/USEPA/WNTR/1.5.0/wntr/library/networks/Net3.inp             -o _aqua_bridge/source/Net3.inp
+          echo "ea3e825c4fef0b5cba47fb06301bc85253f18b6364dc96c44d9fb492c40faa52  _aqua_bridge/source/Net3.inp" | sha256sum -c -
+
+      - name: Reconstruct frozen v0.3 benchmark definition
+        run: |
+          mkdir -p _aqua_bridge/frozen
+          python protocols/net3/v0_3/02_freeze_benchmark_design.py             --net3 _aqua_bridge/source/Net3.inp             --protocol protocols/net3/v0_3/01_benchmark_protocol_v0_3.md             --out _aqua_bridge/frozen
+
+      - name: Reproduce Windows text line endings for frozen artifacts
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          names = [
+              "benchmark_protocol_v0_3.md",
+              "sensor_layout.json",
+              "leak_pipe_pools.json",
+              "scenario_manifest.csv",
+              "corruption_config.json",
+              "benchmark_design.json",
+          ]
+          root = Path("_aqua_bridge/frozen")
+          for name in names:
+              p = root / name
+              raw = p.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+              p.write_bytes(raw.replace(b"\n", b"\r\n"))
+          PY
+
+      - name: Verify reconstructed frozen artifact hashes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+          expected = {
+              "benchmark_protocol_v0_3.md": "cbdc2a46945b2ddb71e586d9507819f76188839a3e93c5f3f580b9a400942632",
+              "sensor_layout.json": "cbfe1e308eef967a16bdbec449fa1cdf6b39dd0fa47374a0cb42876a17ed7ac7",
+              "leak_pipe_pools.json": "e32f408a1194642413d92e285d94a1a85c94b9587099fe508b5020a2fa6238bc",
+              "scenario_manifest.csv": "ee818977fd10cc82e384a12a294389231336d0fedee9807ab26056ca409b5490",
+              "corruption_config.json": "37f648b414d12c7a845ecea784376ece85d5a3c9417c4b585e5c96eb287c5fbd",
+              "benchmark_design.json": "f2929d390749ef57f7b423d1c0a8cbba19e7ca0cc4c3469341c0b06598e58a5d",
+          }
+          root = Path("_aqua_bridge/frozen")
+          failed = False
+          for name, exp in expected.items():
+              got = hashlib.sha256((root / name).read_bytes()).hexdigest()
+              print(name, got, "OK" if got == exp else "MISMATCH")
+              failed |= got != exp
+          if failed:
+              raise SystemExit("Frozen artifact reproduction mismatch; refusing to open held-out benchmark.")
+          PY
+
+      - name: Generate frozen 240-context Net3 benchmark
+        run: |
+          mkdir -p _aqua_bridge/generated
+          python src/net3/v0_3a/01_generate_scenarios.py             --net3 _aqua_bridge/source/Net3.inp             --frozen _aqua_bridge/frozen             --out _aqua_bridge/generated
+
+      - name: Run AQUA-BRIDGE on all frozen context splits
+        run: |
+          python experiments/aqua_bridge/run_aqua_bridge.py             --generated-dir _aqua_bridge/generated             --max-rows-per-variant 12             --out outputs/aqua_bridge_net3
+
+      - name: Summarise results without retuning
+        run: |
+          python - <<'PY'
+          import json
+          import pandas as pd
+          from pathlib import Path
+          out = Path("outputs/aqua_bridge_net3")
+          m = pd.read_csv(out / "architecture_metrics.csv")
+          summary = {
+              "metric_rows": int(len(m)),
+              "architectures": sorted(m.architecture.unique().tolist()),
+              "conditions": sorted(m.condition.unique().tolist()),
+              "mean_coverage_by_architecture": m.groupby("architecture").coverage.mean().to_dict(),
+              "mean_unsafe_proceed_rate_all_by_architecture": m.groupby("architecture").unsafe_proceed_rate_all.mean().to_dict(),
+              "mean_mae_when_proceeding_by_architecture": m.groupby("architecture").mae_when_proceeding.mean().to_dict(),
+          }
+          (out / "application_summary.json").write_text(json.dumps(summary, indent=2))
+          print(json.dumps(summary, indent=2))
+          PY
+
+      - name: Upload application-grade AQUA-BRIDGE outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: aqua-bridge-net3-results
+          path: |
+            outputs/aqua_bridge_net3/architecture_metrics.csv
+            outputs/aqua_bridge_net3/frozen_reconstruction_thresholds.csv
+            outputs/aqua_bridge_net3/cluster_summary.csv
+            outputs/aqua_bridge_net3/lessons.json
+            outputs/aqua_bridge_net3/run_manifest.json
+            outputs/aqua_bridge_net3/application_summary.json
+          if-no-files-found: error
+          retention-days: 30

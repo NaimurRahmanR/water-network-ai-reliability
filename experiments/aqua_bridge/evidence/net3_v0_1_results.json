@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "evidence_type": "full frozen Net3 AQUA-BRIDGE v0.1 architecture experiment",
+  "workflow_run_id": 37484690354,
+  "workflow_url": "https://github.com/NaimurRahmanR/water-network-ai-reliability/actions/runs/37484690354",
+  "tested_head_sha": "83ae3dd23ae9ca8c8a9709d71d79de51059ae4b6",
+  "artifact_id": 11423232568,
+  "artifact_digest": "sha256:052926e0bb954bee149100617fe90e1dd8b0018d69bdd71615a9cd6e963e16ca",
+  "split": "TEST",
+  "architecture_means": {
+    "central_only": {
+      "coverage": 1,
+      "unsafe_proceed_rate_all": 0.0011705597643097499,
+      "mae_when_proceeding": 0.11022897115947737
+    },
+    "edge_only": {
+      "coverage": 1,
+      "unsafe_proceed_rate_all": 0.0026850536616161253,
+      "mae_when_proceeding": 0.34217075993335083
+    },
+    "hybrid_naive": {
+      "coverage": 1,
+      "unsafe_proceed_rate_all": 0.0026850536616161253,
+      "mae_when_proceeding": 0.34217075993335083
+    },
+    "hybrid_reliability_aware": {
+      "coverage": 0.9668540877525253,
+      "unsafe_proceed_rate_all": 0.00023411195286187502,
+      "mae_when_proceeding": 0.14793523548794796
+    }
+  },
+  "claim_boundary": [
+    "Benchmark-defined unsafe recovery is not operational water-network safety.",
+    "Logical edge nodes are not physical edge hardware.",
+    "TEST results were inspected only after the v0.1 protocol was frozen.",
+    "No water-utility deployment claim is made."
+  ]
+}
