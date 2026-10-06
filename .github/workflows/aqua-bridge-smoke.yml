@@ -26,10 +26,11 @@ jobs:
       - name: Compile experiment scripts
         run: |
           python -m py_compile experiments/aqua_bridge/run_aqua_bridge.py
+          python -m py_compile experiments/aqua_bridge/run_lessons_v0_2.py
           python -m py_compile experiments/aqua_bridge/sensorthings_bridge.py
           python -m py_compile experiments/aqua_bridge/mqtt_edge_consumer.py
-      - name: Run smoke test
-        run: pytest -q experiments/aqua_bridge/tests/test_smoke.py
+      - name: Run smoke tests
+        run: pytest -q experiments/aqua_bridge/tests/test_smoke.py experiments/aqua_bridge/tests/test_lessons_v0_2.py
       - name: Run smoke experiment
         run: python experiments/aqua_bridge/run_aqua_bridge.py --smoke --out outputs/aqua_bridge_smoke
       - name: Check expected outputs
