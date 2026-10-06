@@ -1,0 +1,37 @@
+name: aqua_bridge_frost
+services:
+  frost:
+    image: fraunhoferiosb/frost-server:latest
+    environment:
+      - serviceRootUrl=http://localhost:8080/FROST-Server
+      - plugins_modelLoader_enable=true
+      - plugins_multiDatastream_enable=false
+      - plugins_actuation_enable=false
+      - http_cors_enable=true
+      - http_cors_allowed_origins=*
+      - persistence_db_driver=org.postgresql.Driver
+      - persistence_db_url=jdbc:postgresql://database:5432/sensorthings
+      - persistence_db_username=sensorthings
+      - persistence_db_password=ChangeMe
+      - persistence_autoUpdateDatabase=true
+    ports:
+      - "8080:8080"
+      - "1883:1883"
+    depends_on:
+      database:
+        condition: service_healthy
+  database:
+    image: postgis/postgis:18-3.6-alpine
+    environment:
+      - POSTGRES_DB=sensorthings
+      - POSTGRES_USER=sensorthings
+      - POSTGRES_PASSWORD=ChangeMe
+    volumes:
+      - aqua_bridge_postgis:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d sensorthings -U sensorthings"]
+      interval: 2s
+      timeout: 2s
+      retries: 15
+volumes:
+  aqua_bridge_postgis:
