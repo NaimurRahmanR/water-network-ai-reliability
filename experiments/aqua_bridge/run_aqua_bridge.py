@@ -205,6 +205,7 @@ def _corrupt(
     severity: str,
     std: np.ndarray,
     previous: np.ndarray | None,
+    previous_delay_ms: int,
     rng: np.random.Generator,
 ):
     x = row.copy()
@@ -215,7 +216,7 @@ def _corrupt(
         x[target] = np.nan
     elif condition == "STALE_SENSOR":
         x[target] = (previous[target] if previous is not None else row[target])
-        delay_ms = {"low": 5_000, "medium": 30_000, "high": 120_000}[severity]
+        delay_ms = previous_delay_ms if previous is not None else 0
     elif condition == "SENSOR_BIAS":
         mult = {"low": 0.5, "medium": 1.0, "high": 2.0}[severity]
         x[target] = row[target] + mult * max(std[target], 1e-6)
@@ -392,24 +393,29 @@ def run(layout: SensorLayout, train_df: pd.DataFrame, calib_df: pd.DataFrame, te
     severities = ("low", "medium", "high")
     test_records = test_df.to_dict("records")
     by_key = {(r["context_id"], r["variant"], r["timestamp_index"]): r["values"] for r in test_records}
-    previous_by_variant: Dict[Tuple[str, str], np.ndarray] = {}
+    previous_by_variant: Dict[Tuple[str, str], Tuple[np.ndarray, int]] = {}
 
     for rec in test_records:
         clean = np.asarray(rec["values"], dtype=float)
         opp_variant = "LEAK" if rec["variant"] == "CLEAN" else "CLEAN"
         opposite = np.asarray(by_key.get((rec["context_id"], opp_variant, rec["timestamp_index"]), clean), dtype=float)
-        previous = previous_by_variant.get((rec["context_id"], rec["variant"]))
+        previous_entry = previous_by_variant.get((rec["context_id"], rec["variant"]))
+        previous = previous_entry[0] if previous_entry is not None else None
+        previous_delay_ms = (
+            max(0, int(rec["timestamp_index"]) - int(previous_entry[1])) * 300_000
+            if previous_entry is not None else 0
+        )
         for target in layout.pressure_indices:
             for condition in CONDITIONS:
                 if condition == "CLEAN":
                     sev_list = ("clean",)
-                elif condition in {"SENSOR_BIAS", "STALE_SENSOR"}:
+                elif condition == "SENSOR_BIAS":
                     sev_list = severities
                 else:
                     sev_list = ("fixed",)
                 for severity in sev_list:
                     corrupted_x, packet_lost, delay_ms, corrupted = _corrupt(
-                        clean, opposite, target, condition, severity, train_std, previous, rng
+                        clean, opposite, target, condition, severity, train_std, previous, previous_delay_ms, rng
                     )
                     edge_m = edge_models[target]
                     central_m = central_models[target]
@@ -442,7 +448,7 @@ def run(layout: SensorLayout, train_df: pd.DataFrame, calib_df: pd.DataFrame, te
                             edge_central_disagreement=float(abs(edge_pred - central_pred)),
                             packet_lost=packet_lost, delay_ms=delay_ms, unsafe_proceed=unsafe,
                         ))
-        previous_by_variant[(rec["context_id"], rec["variant"])] = clean
+        previous_by_variant[(rec["context_id"], rec["variant"])] = (clean, int(rec["timestamp_index"]))
 
     conn = _init_db(out_dir / "incident_hub.sqlite")
     _write_incidents(conn, incidents)
