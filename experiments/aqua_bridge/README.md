@@ -83,4 +83,4 @@ See `RESULTS.md` for the exact interpretation.
 
 ## Claim boundaries
 
-This is a research prototype, not a utility deployment. Logical/containerised edge nodes are not physical edge devices. Controlled sensor and communication failures are benchmark interventions. Incident-derived lessons are not operator-approved utility rules. SensorThings/MQTT code must not be described as executed deployment evidence until a runtime record has actually been produced.
+This is a research prototype, not a utility deployment. Logical/containerised edge nodes are not physical edge devices. Controlled sensor and communication failures are benchmark interventions. Incident-derived lessons are not operator-approved utility rules. The SensorThings/FROST + MQTT integration has been executed in containerised CI and is supported by a retained runtime record; this does not establish physical edge hardware, production deployment, or water-utility deployment.
