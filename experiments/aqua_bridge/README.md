@@ -26,7 +26,7 @@ A secondary question is whether those failures and recoveries can be recorded as
 - optional OGC SensorThings/FROST replay of existing Net3 sensor matrices;
 - optional MQTT edge consumer.
 
-See PROTOCOL_v0_1.md for the frozen experiment definition.
+See PROTOCOL_v0_1.md for the frozen TEST experiment definition and PROTOCOL_v0_2.md for the untouched-VALIDATION Incident-Hub confirmation. Executed results and claim boundaries are summarised in RESULTS.md.
 
 ## CPU smoke run
 
@@ -66,6 +66,20 @@ Subscribe an edge consumer to a FROST MQTT observation topic:
     python experiments/aqua_bridge/mqtt_edge_consumer.py --edge-id edge_1 --topic 'v1.1/Observations'
 
 A Datastream-specific FROST MQTT topic can be supplied through --topic when required by the local query configuration.
+
+## Executed evidence
+
+The full Net3 v0.1 run, the containerised FROST SensorThings/MQTT integration, and the v0.2 untouched-VALIDATION confirmation have all completed successfully in GitHub Actions.
+
+Compact executed evidence is retained under `evidence/`:
+
+- `frost_integration_evidence.json`;
+- `net3_v0_1_results.json`;
+- `validation_v0_2_results.json`.
+
+The v0.2 confirmation selected two descriptive profiles with silhouette 0.7011 and bootstrap ARI mean 0.9469. The reliability-aware hybrid reproduced the coverage-risk trade-off on VALIDATION: mean coverage 0.9608, mean escalation 0.0392, and zero observed benchmark-defined unsafe proceeds in that confirmation. This is not a zero-operational-risk claim.
+
+See `RESULTS.md` for the exact interpretation.
 
 ## Claim boundaries
 
