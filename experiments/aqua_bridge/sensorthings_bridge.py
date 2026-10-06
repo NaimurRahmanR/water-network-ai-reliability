@@ -41,7 +41,7 @@ class FROSTClient:
                 "location": {"type": "Point", "coordinates": [0.0, 0.0]},
             }],
             "Datastreams": [{
-                "name": f"{name} {observed_property}",
+                "name": f"{name} value",
                 "description": "AQUA-BRIDGE replay datastream",
                 "observationType": "http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement",
                 "unitOfMeasurement": {"name": observed_property, "symbol": unit_symbol, "definition": "urn:aqua-bridge:unit"},
