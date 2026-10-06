@@ -1,6 +1,6 @@
 name: aqua_bridge_frost
 services:
-  frost:
+  web:
     image: fraunhoferiosb/frost-server:latest
     environment:
       - serviceRootUrl=http://localhost:8080/FROST-Server
@@ -20,6 +20,9 @@ services:
     depends_on:
       database:
         condition: service_healthy
+      uuid-ossp:
+        condition: service_completed_successfully
+
   database:
     image: postgis/postgis:18-3.6-alpine
     environment:
@@ -33,5 +36,19 @@ services:
       interval: 2s
       timeout: 2s
       retries: 15
+
+  uuid-ossp:
+    image: postgis/postgis:18-3.6-alpine
+    depends_on:
+      database:
+        condition: service_healthy
+    environment:
+      - PGPASSWORD=ChangeMe
+    restart: "no"
+    entrypoint: ["/bin/sh", "-c"]
+    command: >
+      psql -h database -U sensorthings -d sensorthings
+      -c 'CREATE EXTENSION IF NOT EXISTS "uuid-ossp";'
+
 volumes:
   aqua_bridge_postgis:
